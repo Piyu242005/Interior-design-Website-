@@ -1,4 +1,4 @@
-# 🏠 DNEST Interior Design Studio
+# 🏠 DNEST Interior Design Studio By Piyu
 
 **Blending creativity with precision.**
 
@@ -12,9 +12,8 @@ We specialize in personalized residential and commercial interiors — guided by
 - Visual Clarity & Functionality  
 
 ## 🖼️ Gallery
-![Living Room Design](images/livingroom.jpg)
-![Office Interior](images/office.jpg)
-![Kitchen Layout](images/kitchen.jpg)
+![HOMEPAGE](ScreenShot/Screenshot_12-11-2025_13425_localhost.jpeg)
+
 
 *(Make sure these image files are in a folder named `images/` inside your project.)*
 
