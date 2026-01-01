@@ -1,10 +1,60 @@
 # 🏠 D NEST Interior Design Studio
 
 > *Transforming Spaces Into Dreams*
+--
+# Piyu – Interior Design & Consulting Website
+
+A modern, responsive, and visually rich portfolio website designed for interior design services and professional consulting.  
+The project highlights services, portfolio listings, client testimonials, and UPI-based consultation payments.
 
 A modern interior design website built with **Python**, **Flask**, **Jinja2**, and **Tailwind CSS**.
+--
 
-![Homepage](ScreenShot/Screenshot_12-11-2025_13425_localhost.jpeg)
+## 🌐 Website Sections Overview
+
+### 🏠 Home
+![Home](ScreenShot/Piyu%20latest.jpeg)
+
+
+### Services
+Showcases core interior design services with a premium UI and modern layout.
+
+![Services](ScreenShot/Services.jpeg)
+
+---
+
+### 👤 About
+Brief introduction about the creator, vision, and design philosophy.
+
+![About](ScreenShot/about.jpeg)
+
+---
+
+### 🧾 Listings
+Displays categorized interior projects and offerings.
+
+![Listings](ScreenShot/Listings.jpeg)
+
+---
+
+### 🖼 Portfolio
+Highlights featured projects with images, locations, and completion year.
+
+![Portfolio](ScreenShot/portfolio.jpeg)
+
+---
+
+### 💬 Consultation & Appointment
+Allows users to book consultations and pay the appointment fee using UPI Payment
+Secure and simple UPI QR-based payment system for consultation or appointment booking.
+![Consult](ScreenShot/consult.jpeg)
+
+---
+
+### 📞 Contact
+Contact details and inquiry section for easy communication.
+
+![Contact](ScreenShot/contact.jpeg)
 
 ---
 
