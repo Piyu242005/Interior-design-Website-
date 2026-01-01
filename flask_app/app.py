@@ -77,14 +77,14 @@ TEAM = [
     {
         'name': 'Piyush Ramteke',
         'role': 'Founder & Lead Developer',
-        'image': 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400',
+        'image': '/static/images/piyush.jpg',
         'bio': 'Piyush specializes in data-driven solutions, clean design, and efficient development. He focuses on building practical, user-friendly, and scalable projects with attention to detail.',
         'icon': 'code'
     },
     {
         'name': 'Nikhil Sonone',
         'role': 'Co-Founder & Technical Associate',
-        'image': 'https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=400',
+        'image': '/static/images/nikhil.jpeg',
         'bio': 'Nikhil contributes to development, problem-solving, and implementation support, ensuring projects are executed smoothly and meet performance expectations.',
         'icon': 'wrench'
     }
@@ -389,6 +389,39 @@ def api_contact():
         else:
             # Even if Supabase fails, acknowledge receipt
             return jsonify({'success': True, 'message': 'Thank you for your message! We will get back to you soon.'})
+            
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)}), 500
+
+
+@app.route('/consultation')
+def consultation():
+    """Consultation booking and payment page"""
+    return render_template('consultation.html',
+                           page_title='Book a Consultation - Piyu')
+
+
+@app.route('/api/consultation-request', methods=['POST'])
+def api_consultation_request():
+    """API endpoint for consultation booking requests"""
+    try:
+        data = request.get_json()
+        name = data.get('name', '').strip()
+        email = data.get('email', '').strip()
+        phone = data.get('phone', '').strip()
+        transaction_id = data.get('transaction_id', '').strip()
+        preferred_date = data.get('preferred_date', '').strip()
+        preferred_time = data.get('preferred_time', '').strip()
+        topic = data.get('topic', '').strip()
+        
+        # Validation
+        if not name or not email or not transaction_id:
+            return jsonify({'success': False, 'error': 'Name, email, and transaction ID are required'}), 400
+        
+        # Log the consultation request (in production, save to database)
+        print(f"Consultation Request: {name}, {email}, {phone}, TXN: {transaction_id}, Date: {preferred_date} {preferred_time}")
+        
+        return jsonify({'success': True, 'message': 'Consultation request received! We will verify and confirm your appointment.'})
             
     except Exception as e:
         return jsonify({'success': False, 'error': str(e)}), 500

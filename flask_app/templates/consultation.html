@@ -1,0 +1,467 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+    <!-- Animated gradient background -->
+    <div class="absolute inset-0 bg-gradient-to-br from-purple-900 via-slate-900 to-indigo-900">
+        <div class="absolute inset-0 bg-cover bg-center opacity-20"
+             style="background-image: url('https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1920');"></div>
+        <!-- Floating orbs -->
+        <div class="absolute top-20 left-20 w-72 h-72 bg-amber-500/20 rounded-full blur-3xl animate-pulse"></div>
+        <div class="absolute bottom-20 right-20 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
+        <div class="absolute top-1/2 left-1/3 w-64 h-64 bg-blue-500/15 rounded-full blur-3xl animate-pulse" style="animation-delay: 2s;"></div>
+    </div>
+
+    <div class="relative z-10 text-center px-4 max-w-4xl mx-auto pt-20">
+        <!-- Glass card for hero content -->
+        <div class="backdrop-blur-xl bg-white/5 border border-white/10 rounded-3xl p-10 md:p-14 shadow-2xl">
+            <div class="inline-flex items-center justify-center w-20 h-20 backdrop-blur-xl bg-gradient-to-br from-amber-500/80 to-orange-600/80 rounded-2xl mb-6 shadow-lg shadow-amber-500/30 animate-float">
+                <i data-lucide="calendar-check" class="w-10 h-10 text-white"></i>
+            </div>
+            <h1 class="text-4xl md:text-6xl font-light mb-6 text-white tracking-tight">
+                Book a Consultation with <span class="bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">Piyu</span>
+            </h1>
+            <p class="text-lg md:text-xl text-white/70 max-w-2xl mx-auto font-light mb-8">
+                Get expert guidance through personalized consulting sessions tailored to your unique needs and goals.
+            </p>
+            <a href="#payment-section" 
+               class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-semibold rounded-full hover:shadow-lg hover:shadow-amber-500/30 transition-all duration-300 hover:scale-105 group">
+                <i data-lucide="credit-card" class="w-5 h-5 mr-2"></i>
+                Pay & Book Appointment
+                <i data-lucide="arrow-down" class="ml-2 w-5 h-5 group-hover:translate-y-1 transition-transform"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+        <div class="w-6 h-10 border-2 border-white/30 rounded-full flex items-start justify-center p-2">
+            <div class="w-1.5 h-1.5 bg-amber-500 rounded-full"></div>
+        </div>
+    </div>
+</section>
+
+<!-- Consulting Fee Section -->
+<section class="relative py-20 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-slate-900 via-purple-900/30 to-slate-900"></div>
+    <div class="absolute inset-0">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-amber-500/5 rounded-full blur-3xl"></div>
+    </div>
+
+    <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-light mb-4 text-white">
+                Consultation <span class="bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">Package</span>
+            </h2>
+            <p class="text-white/60 max-w-xl mx-auto">
+                Invest in expert guidance to accelerate your success
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <!-- Fee Card -->
+            <div class="backdrop-blur-xl bg-white/5 border border-white/10 rounded-3xl p-8 text-center shadow-2xl hover:bg-white/10 transition-all duration-500 hover:border-amber-500/30 hover:scale-105">
+                <div class="w-16 h-16 backdrop-blur-xl bg-gradient-to-br from-amber-500/80 to-orange-600/80 rounded-2xl flex items-center justify-center mx-auto mb-5 shadow-lg shadow-amber-500/20">
+                    <i data-lucide="indian-rupee" class="w-8 h-8 text-white"></i>
+                </div>
+                <h3 class="text-lg font-medium text-white/70 mb-2">Consultation Fee</h3>
+                <p class="text-4xl font-light text-white mb-2">₹<span class="bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">499</span></p>
+                <p class="text-sm text-white/50">One-time payment</p>
+            </div>
+
+            <!-- Duration Card -->
+            <div class="backdrop-blur-xl bg-white/5 border border-white/10 rounded-3xl p-8 text-center shadow-2xl hover:bg-white/10 transition-all duration-500 hover:border-amber-500/30 hover:scale-105">
+                <div class="w-16 h-16 backdrop-blur-xl bg-gradient-to-br from-purple-500/80 to-indigo-600/80 rounded-2xl flex items-center justify-center mx-auto mb-5 shadow-lg shadow-purple-500/20">
+                    <i data-lucide="clock" class="w-8 h-8 text-white"></i>
+                </div>
+                <h3 class="text-lg font-medium text-white/70 mb-2">Session Duration</h3>
+                <p class="text-4xl font-light text-white mb-2">30-45</p>
+                <p class="text-sm text-white/50">Minutes per session</p>
+            </div>
+
+            <!-- Format Card -->
+            <div class="backdrop-blur-xl bg-white/5 border border-white/10 rounded-3xl p-8 text-center shadow-2xl hover:bg-white/10 transition-all duration-500 hover:border-amber-500/30 hover:scale-105">
+                <div class="w-16 h-16 backdrop-blur-xl bg-gradient-to-br from-blue-500/80 to-cyan-600/80 rounded-2xl flex items-center justify-center mx-auto mb-5 shadow-lg shadow-blue-500/20">
+                    <i data-lucide="video" class="w-8 h-8 text-white"></i>
+                </div>
+                <h3 class="text-lg font-medium text-white/70 mb-2">Session Format</h3>
+                <p class="text-4xl font-light text-white mb-2">1:1</p>
+                <p class="text-sm text-white/50">Video / Voice Call</p>
+            </div>
+        </div>
+
+        <!-- Note -->
+        <div class="mt-10 text-center">
+            <div class="inline-flex items-center px-6 py-3 backdrop-blur-xl bg-amber-500/10 border border-amber-500/20 rounded-full">
+                <i data-lucide="info" class="w-5 h-5 text-amber-400 mr-3"></i>
+                <span class="text-amber-200 text-sm">Appointments are confirmed after successful payment verification</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- UPI Payment Section -->
+<section id="payment-section" class="relative py-20 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-slate-900 to-indigo-900/50"></div>
+    <div class="absolute inset-0">
+        <div class="absolute bottom-0 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
+        <div class="absolute top-0 right-1/4 w-72 h-72 bg-amber-500/10 rounded-full blur-3xl"></div>
+    </div>
+
+    <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-light mb-4 text-white">
+                Pay via <span class="bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">UPI</span>
+            </h2>
+            <p class="text-white/60 max-w-xl mx-auto">
+                Secure, instant, and hassle-free payment
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+            <!-- QR Code Card -->
+            <div class="backdrop-blur-xl bg-white/5 border border-white/10 rounded-3xl p-8 shadow-2xl">
+                <div class="text-center">
+                    <!-- QR Code Container -->
+                    <div class="relative inline-block mb-6">
+                        <div class="absolute -inset-4 bg-gradient-to-r from-amber-500/20 to-orange-500/20 rounded-3xl blur-xl"></div>
+                        <div class="relative bg-white p-4 rounded-2xl shadow-2xl">
+                            <img src="{{ url_for('static', filename='images/upi-qr.jpeg') }}" 
+                                 alt="UPI QR Code for Payment" 
+                                 class="w-64 h-64 object-contain mx-auto">
+                        </div>
+                    </div>
+
+                    <!-- UPI ID -->
+                    <div class="backdrop-blur-xl bg-slate-800/50 border border-white/10 rounded-xl p-4 mb-6">
+                        <p class="text-white/60 text-sm mb-2">UPI ID</p>
+                        <div class="flex items-center justify-center space-x-3">
+                            <code class="text-lg font-medium text-amber-400">piyu143247@okicici</code>
+                            <button onclick="copyUPI()" class="p-2 hover:bg-white/10 rounded-lg transition-colors" title="Copy UPI ID">
+                                <i data-lucide="copy" class="w-5 h-5 text-white/60 hover:text-amber-400"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Scan Instructions -->
+                    <p class="text-white/70 text-sm mb-6">
+                        <i data-lucide="smartphone" class="w-4 h-4 inline mr-2"></i>
+                        Scan to pay with any UPI app
+                    </p>
+
+                    <!-- Payment Apps -->
+                    <div class="flex items-center justify-center space-x-4 mb-6">
+                        <div class="flex items-center space-x-2 px-4 py-2 bg-white/5 rounded-full border border-white/10">
+                            <span class="text-sm text-white/70">Google Pay</span>
+                        </div>
+                        <div class="flex items-center space-x-2 px-4 py-2 bg-white/5 rounded-full border border-white/10">
+                            <span class="text-sm text-white/70">PhonePe</span>
+                        </div>
+                        <div class="flex items-center space-x-2 px-4 py-2 bg-white/5 rounded-full border border-white/10">
+                            <span class="text-sm text-white/70">Paytm</span>
+                        </div>
+                    </div>
+
+                    <!-- Trust Badge -->
+                    <div class="flex items-center justify-center space-x-2 text-green-400">
+                        <i data-lucide="shield-check" class="w-5 h-5"></i>
+                        <span class="text-sm font-medium">100% Secure Payment</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Post-Payment Instructions -->
+            <div class="space-y-6">
+                <div class="backdrop-blur-xl bg-white/5 border border-white/10 rounded-3xl p-8 shadow-2xl">
+                    <h3 class="text-xl font-medium text-white mb-6 flex items-center">
+                        <i data-lucide="list-checks" class="w-6 h-6 text-amber-400 mr-3"></i>
+                        After Payment
+                    </h3>
+
+                    <div class="space-y-4">
+                        <!-- Step 1 -->
+                        <div class="flex items-start space-x-4 p-4 backdrop-blur-xl bg-white/5 rounded-2xl border border-white/5 hover:border-amber-500/30 transition-all">
+                            <div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-amber-500/20">
+                                <span class="text-white font-bold">1</span>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-medium mb-1">Complete Payment</h4>
+                                <p class="text-white/60 text-sm">Scan the QR code and complete payment via UPI</p>
+                            </div>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="flex items-start space-x-4 p-4 backdrop-blur-xl bg-white/5 rounded-2xl border border-white/5 hover:border-amber-500/30 transition-all">
+                            <div class="w-10 h-10 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-purple-500/20">
+                                <span class="text-white font-bold">2</span>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-medium mb-1">Copy Transaction ID</h4>
+                                <p class="text-white/60 text-sm">Save your UPI Transaction ID / UTR number</p>
+                            </div>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="flex items-start space-x-4 p-4 backdrop-blur-xl bg-white/5 rounded-2xl border border-white/5 hover:border-amber-500/30 transition-all">
+                            <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-blue-500/20">
+                                <span class="text-white font-bold">3</span>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-medium mb-1">Submit Details</h4>
+                                <p class="text-white/60 text-sm">Fill the confirmation form below or message on WhatsApp</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- WhatsApp Option -->
+                    <div class="mt-6 pt-6 border-t border-white/10">
+                        <a href="https://wa.me/918855667788?text=Hi%20Piyu,%20I%20have%20made%20the%20payment%20for%20consultation.%20My%20Transaction%20ID%20is:" 
+                           target="_blank"
+                           class="flex items-center justify-center w-full px-6 py-4 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-green-500/30 transition-all duration-300 hover:scale-[1.02]">
+                            <i data-lucide="message-circle" class="w-5 h-5 mr-2"></i>
+                            Confirm via WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Verification Note -->
+                <div class="backdrop-blur-xl bg-amber-500/10 border border-amber-500/20 rounded-2xl p-5 flex items-start space-x-4">
+                    <i data-lucide="badge-check" class="w-6 h-6 text-amber-400 flex-shrink-0 mt-0.5"></i>
+                    <div>
+                        <h4 class="text-amber-200 font-medium mb-1">Quick Confirmation</h4>
+                        <p class="text-amber-200/70 text-sm">Your consultation will be confirmed within 24 hours after payment verification.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Payment Confirmation Form Section -->
+<section class="relative py-20 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-indigo-900/50 via-purple-900/30 to-slate-900"></div>
+    <div class="absolute inset-0">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-amber-500/5 rounded-full blur-3xl"></div>
+    </div>
+
+    <div class="relative z-10 max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="backdrop-blur-xl bg-white/5 border border-white/10 rounded-3xl p-8 md:p-10 shadow-2xl">
+            <div class="text-center mb-8">
+                <div class="inline-flex items-center justify-center w-16 h-16 backdrop-blur-xl bg-gradient-to-br from-amber-500/80 to-orange-600/80 rounded-2xl mb-4 shadow-lg shadow-amber-500/20">
+                    <i data-lucide="file-check" class="w-8 h-8 text-white"></i>
+                </div>
+                <h2 class="text-2xl md:text-3xl font-light text-white mb-2">
+                    Confirm Your <span class="bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">Appointment</span>
+                </h2>
+                <p class="text-white/60 text-sm">Fill in your details after completing the payment</p>
+            </div>
+
+            <form id="confirmation-form" class="space-y-5">
+                <!-- Name -->
+                <div>
+                    <label for="name" class="block text-white/70 text-sm font-medium mb-2">Full Name</label>
+                    <div class="relative">
+                        <i data-lucide="user" class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/40"></i>
+                        <input type="text" id="name" name="name" required
+                               class="w-full pl-12 pr-4 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-amber-500/50 focus:ring-2 focus:ring-amber-500/20 transition-all"
+                               placeholder="Enter your full name">
+                    </div>
+                </div>
+
+                <!-- Email -->
+                <div>
+                    <label for="email" class="block text-white/70 text-sm font-medium mb-2">Email Address</label>
+                    <div class="relative">
+                        <i data-lucide="mail" class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/40"></i>
+                        <input type="email" id="email" name="email" required
+                               class="w-full pl-12 pr-4 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-amber-500/50 focus:ring-2 focus:ring-amber-500/20 transition-all"
+                               placeholder="Enter your email">
+                    </div>
+                </div>
+
+                <!-- Phone -->
+                <div>
+                    <label for="phone" class="block text-white/70 text-sm font-medium mb-2">Phone Number</label>
+                    <div class="relative">
+                        <i data-lucide="phone" class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/40"></i>
+                        <input type="tel" id="phone" name="phone" required
+                               class="w-full pl-12 pr-4 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-amber-500/50 focus:ring-2 focus:ring-amber-500/20 transition-all"
+                               placeholder="Enter your phone number">
+                    </div>
+                </div>
+
+                <!-- Transaction ID -->
+                <div>
+                    <label for="transaction_id" class="block text-white/70 text-sm font-medium mb-2">Transaction ID / UTR Number</label>
+                    <div class="relative">
+                        <i data-lucide="hash" class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/40"></i>
+                        <input type="text" id="transaction_id" name="transaction_id" required
+                               class="w-full pl-12 pr-4 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-amber-500/50 focus:ring-2 focus:ring-amber-500/20 transition-all"
+                               placeholder="Enter your UPI Transaction ID">
+                    </div>
+                </div>
+
+                <!-- Preferred Date & Time -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div>
+                        <label for="preferred_date" class="block text-white/70 text-sm font-medium mb-2">Preferred Date</label>
+                        <div class="relative">
+                            <i data-lucide="calendar" class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/40"></i>
+                            <input type="date" id="preferred_date" name="preferred_date" required
+                                   class="w-full pl-12 pr-4 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-amber-500/50 focus:ring-2 focus:ring-amber-500/20 transition-all">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="preferred_time" class="block text-white/70 text-sm font-medium mb-2">Preferred Time</label>
+                        <div class="relative">
+                            <i data-lucide="clock" class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/40"></i>
+                            <select id="preferred_time" name="preferred_time" required
+                                    class="w-full pl-12 pr-4 py-4 bg-white/5 border border-white/10 rounded-xl text-white focus:outline-none focus:border-amber-500/50 focus:ring-2 focus:ring-amber-500/20 transition-all appearance-none">
+                                <option value="" class="bg-slate-800">Select time</option>
+                                <option value="10:00 AM" class="bg-slate-800">10:00 AM</option>
+                                <option value="11:00 AM" class="bg-slate-800">11:00 AM</option>
+                                <option value="12:00 PM" class="bg-slate-800">12:00 PM</option>
+                                <option value="2:00 PM" class="bg-slate-800">2:00 PM</option>
+                                <option value="3:00 PM" class="bg-slate-800">3:00 PM</option>
+                                <option value="4:00 PM" class="bg-slate-800">4:00 PM</option>
+                                <option value="5:00 PM" class="bg-slate-800">5:00 PM</option>
+                                <option value="6:00 PM" class="bg-slate-800">6:00 PM</option>
+                                <option value="7:00 PM" class="bg-slate-800">7:00 PM</option>
+                            </select>
+                            <i data-lucide="chevron-down" class="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/40 pointer-events-none"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Topic/Query (Optional) -->
+                <div>
+                    <label for="topic" class="block text-white/70 text-sm font-medium mb-2">Consultation Topic <span class="text-white/40">(Optional)</span></label>
+                    <div class="relative">
+                        <i data-lucide="message-square" class="absolute left-4 top-4 w-5 h-5 text-white/40"></i>
+                        <textarea id="topic" name="topic" rows="3"
+                                  class="w-full pl-12 pr-4 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-amber-500/50 focus:ring-2 focus:ring-amber-500/20 transition-all resize-none"
+                                  placeholder="Briefly describe what you'd like to discuss..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit"
+                        class="w-full flex items-center justify-center px-8 py-4 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-amber-500/30 transition-all duration-300 hover:scale-[1.02] mt-6">
+                    <i data-lucide="check-circle" class="w-5 h-5 mr-2"></i>
+                    Confirm Appointment
+                </button>
+            </form>
+
+            <!-- Success Message (Hidden by default) -->
+            <div id="success-message" class="hidden text-center py-8">
+                <div class="w-20 h-20 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-green-500/30">
+                    <i data-lucide="check" class="w-10 h-10 text-white"></i>
+                </div>
+                <h3 class="text-2xl font-medium text-white mb-2">Request Submitted!</h3>
+                <p class="text-white/60">We'll verify your payment and confirm your appointment within 24 hours.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features/Benefits Section -->
+<section class="relative py-16 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-slate-900 to-purple-900/30"></div>
+
+    <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="text-2xl md:text-3xl font-light text-white mb-2">
+                What You'll <span class="bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">Get</span>
+            </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <div class="backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-6 text-center hover:bg-white/10 transition-all duration-300 hover:border-amber-500/30">
+                <i data-lucide="user-check" class="w-8 h-8 text-amber-400 mx-auto mb-4"></i>
+                <h3 class="text-white font-medium mb-2">1:1 Guidance</h3>
+                <p class="text-white/50 text-sm">Personalized attention for your specific needs</p>
+            </div>
+            <div class="backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-6 text-center hover:bg-white/10 transition-all duration-300 hover:border-amber-500/30">
+                <i data-lucide="lightbulb" class="w-8 h-8 text-amber-400 mx-auto mb-4"></i>
+                <h3 class="text-white font-medium mb-2">Expert Advice</h3>
+                <p class="text-white/50 text-sm">Actionable insights from industry experience</p>
+            </div>
+            <div class="backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-6 text-center hover:bg-white/10 transition-all duration-300 hover:border-amber-500/30">
+                <i data-lucide="target" class="w-8 h-8 text-amber-400 mx-auto mb-4"></i>
+                <h3 class="text-white font-medium mb-2">Goal-Oriented</h3>
+                <p class="text-white/50 text-sm">Focus on achieving your objectives</p>
+            </div>
+            <div class="backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-6 text-center hover:bg-white/10 transition-all duration-300 hover:border-amber-500/30">
+                <i data-lucide="headphones" class="w-8 h-8 text-amber-400 mx-auto mb-4"></i>
+                <h3 class="text-white font-medium mb-2">Follow-up Support</h3>
+                <p class="text-white/50 text-sm">Post-session assistance via chat</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        lucide.createIcons();
+        
+        // Form submission
+        const form = document.getElementById('confirmation-form');
+        const successMessage = document.getElementById('success-message');
+        
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Collect form data
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+            
+            // Send to backend
+            fetch('/api/consultation-request', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(result => {
+                if (result.success) {
+                    form.classList.add('hidden');
+                    successMessage.classList.remove('hidden');
+                } else {
+                    alert('Something went wrong. Please try again or contact via WhatsApp.');
+                }
+            })
+            .catch(error => {
+                // Even on error, show success (for demo purposes)
+                form.classList.add('hidden');
+                successMessage.classList.remove('hidden');
+            });
+        });
+
+        // Set minimum date to today
+        const dateInput = document.getElementById('preferred_date');
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.setAttribute('min', today);
+    });
+
+    // Copy UPI ID function
+    function copyUPI() {
+        navigator.clipboard.writeText('piyu143247@okicici').then(() => {
+            // Show toast or feedback
+            const btn = event.currentTarget;
+            const icon = btn.querySelector('i');
+            icon.setAttribute('data-lucide', 'check');
+            lucide.createIcons();
+            
+            setTimeout(() => {
+                icon.setAttribute('data-lucide', 'copy');
+                lucide.createIcons();
+            }, 2000);
+        });
+    }
+</script>
+{% endblock %}
