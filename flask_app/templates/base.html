@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="D NEST Interior Design Studio - Transforming Spaces Into Dreams">
+    <title>{{ page_title or 'D NEST Interior Design Studio' }}</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        .animate-pulse-slow {
+            animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+    </style>
+    {% block extra_head %}{% endblock %}
+</head>
+<body class="bg-slate-900 text-white min-h-screen">
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-transparent">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="{{ url_for('home') }}" class="flex items-center space-x-3 group">
+                    <div class="h-14 w-auto transform group-hover:scale-105 transition-transform">
+                        <img src="{{ url_for('static', filename='images/Piyu.png') }}" alt="D NEST Logo" class="h-full w-auto object-contain drop-shadow-lg">
+                    </div>
+                    <div class="flex flex-col items-start">
+                        <span class="text-2xl font-light tracking-widest text-white">D NEST</span>
+                        <span class="text-[0.65rem] uppercase tracking-[0.2em] text-amber-500">Interior Design Studio</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex items-center space-x-1">
+                    {% set nav_items = [
+                        ('home', 'Home', 'home'),
+                        ('about', 'About', 'info'),
+                        ('services', 'Services', 'briefcase'),
+                        ('portfolio', 'Portfolio', 'image'),
+                        ('listings', 'Listings', 'building-2'),
+                        ('contact', 'Contact', 'mail')
+                    ] %}
+                    {% for route, label, icon in nav_items %}
+                    <a href="{{ url_for(route) }}" 
+                       class="relative px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 group
+                              {% if request.endpoint == route %}text-amber-500{% else %}text-gray-300 hover:text-white{% endif %}">
+                        <span class="relative z-10 flex items-center">
+                            <i data-lucide="{{ icon }}" class="w-4 h-4 mr-2"></i>
+                            {{ label }}
+                        </span>
+                        {% if request.endpoint == route %}
+                        <span class="absolute inset-0 bg-gradient-to-r from-amber-500/20 to-orange-500/20 rounded-full border border-amber-500/30"></span>
+                        {% endif %}
+                    </a>
+                    {% endfor %}
+                    
+                    <!-- Dark Mode Toggle -->
+                    <button id="theme-toggle" class="ml-4 p-2 rounded-full transition-all duration-300 bg-white/10 hover:bg-white/20 text-yellow-400">
+                        <i data-lucide="sun" class="w-5 h-5"></i>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden flex items-center space-x-2">
+                    <button id="theme-toggle-mobile" class="p-2 rounded-full transition-all duration-300 bg-white/10 hover:bg-white/20 text-yellow-400">
+                        <i data-lucide="sun" class="w-5 h-5"></i>
+                    </button>
+                    <button id="mobile-menu-btn" class="p-2 rounded-lg transition-colors text-white hover:bg-white/10">
+                        <i data-lucide="menu" class="h-6 w-6" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="lg:hidden transition-all duration-300 ease-in-out max-h-0 opacity-0 overflow-hidden">
+            <div class="px-4 pt-2 pb-4 space-y-1 border-t bg-slate-900/95 backdrop-blur-xl border-white/10">
+                {% for route, label, icon in nav_items %}
+                <a href="{{ url_for(route) }}"
+                   class="flex items-center w-full px-4 py-3 rounded-xl text-base font-medium transition-all
+                          {% if request.endpoint == route %}text-amber-500 bg-amber-500/10{% else %}text-gray-300 hover:text-white hover:bg-white/5{% endif %}">
+                    <i data-lucide="{{ icon }}" class="w-5 h-5 mr-3"></i>
+                    {{ label }}
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-gray-400">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-10 h-10 bg-amber-600 rounded-sm flex items-center justify-center overflow-hidden">
+                            <img src="{{ url_for('static', filename='images/Piyu.png') }}" alt="D NEST Logo" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <div class="text-lg font-light text-white">D NEST</div>
+                            <div class="text-xs text-amber-600">INTERIOR DESIGN</div>
+                        </div>
+                    </div>
+                    <p class="text-sm">
+                        Transforming spaces into dreams with exceptional design and craftsmanship.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="text-white font-medium mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="{{ url_for('about') }}" class="hover:text-amber-600 transition-colors">About Us</a></li>
+                        <li><a href="{{ url_for('services') }}" class="hover:text-amber-600 transition-colors">Our Services</a></li>
+                        <li><a href="{{ url_for('portfolio') }}" class="hover:text-amber-600 transition-colors">Portfolio</a></li>
+                        <li><a href="{{ url_for('contact') }}" class="hover:text-amber-600 transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-white font-medium mb-4">Contact Information</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-start space-x-2">
+                            <i data-lucide="map-pin" class="w-4 h-4 mt-1 flex-shrink-0"></i>
+                            <span>123 Design Street, Creative Amravati, 444701</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i data-lucide="phone" class="w-4 h-4"></i>
+                            <span>+91 8855667788</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i data-lucide="mail" class="w-4 h-4"></i>
+                            <span>piyu143247@gmail.com</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-white font-medium mb-4">Follow Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-slate-800 rounded-sm flex items-center justify-center hover:bg-amber-600 transition-colors" aria-label="Facebook">
+                            <i data-lucide="facebook" class="w-5 h-5"></i>
+                        </a>
+                        <a href="https://www.instagram.com/my.life_24143" class="w-10 h-10 bg-slate-800 rounded-sm flex items-center justify-center hover:bg-amber-600 transition-colors" aria-label="Instagram">
+                            <i data-lucide="instagram" class="w-5 h-5"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/piyush-ramteke-24-mylife" class="w-10 h-10 bg-slate-800 rounded-sm flex items-center justify-center hover:bg-amber-600 transition-colors" aria-label="LinkedIn">
+                            <i data-lucide="linkedin" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-slate-800 rounded-sm flex items-center justify-center hover:bg-amber-600 transition-colors" aria-label="Twitter">
+                            <i data-lucide="twitter" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-slate-800 pt-8 text-center text-sm">
+                <p>&copy; {{ current_year }} Piyush Ramteke. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Widget -->
+    <div id="whatsapp-widget" class="fixed bottom-6 right-6 z-40">
+        <button id="whatsapp-btn" class="w-14 h-14 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 hover:scale-110">
+            <i data-lucide="message-circle" class="w-6 h-6"></i>
+        </button>
+        
+        <div id="whatsapp-popup" class="hidden absolute bottom-16 right-0 w-80 bg-white rounded-lg shadow-2xl overflow-hidden">
+            <div class="bg-green-500 text-white p-4">
+                <h3 class="font-medium">Chat with D NEST</h3>
+                <p class="text-sm text-green-100">We typically reply within minutes</p>
+            </div>
+            <div class="p-4 space-y-3">
+                <button onclick="sendWhatsApp('Hello! I would like to inquire about your interior design services.')" class="w-full text-left p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors text-sm text-gray-700">
+                    Inquire about services
+                </button>
+                <button onclick="sendWhatsApp('I would like to schedule a consultation.')" class="w-full text-left p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors text-sm text-gray-700">
+                    Schedule consultation
+                </button>
+                <button onclick="sendWhatsApp('Can you provide a quote for my project?')" class="w-full text-left p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors text-sm text-gray-700">
+                    Request a quote
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        let isMenuOpen = false;
+
+        mobileMenuBtn.addEventListener('click', () => {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                mobileMenu.classList.remove('max-h-0', 'opacity-0');
+                mobileMenu.classList.add('max-h-screen', 'opacity-100');
+                menuIcon.setAttribute('data-lucide', 'x');
+            } else {
+                mobileMenu.classList.add('max-h-0', 'opacity-0');
+                mobileMenu.classList.remove('max-h-screen', 'opacity-100');
+                menuIcon.setAttribute('data-lucide', 'menu');
+            }
+            lucide.createIcons();
+        });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-slate-900/90', 'backdrop-blur-xl', 'border-b', 'border-white/10', 'shadow-lg', 'shadow-black/20');
+                navbar.classList.remove('bg-transparent');
+            } else {
+                navbar.classList.remove('bg-slate-900/90', 'backdrop-blur-xl', 'border-b', 'border-white/10', 'shadow-lg', 'shadow-black/20');
+                navbar.classList.add('bg-transparent');
+            }
+        });
+
+        // WhatsApp widget toggle
+        const whatsappBtn = document.getElementById('whatsapp-btn');
+        const whatsappPopup = document.getElementById('whatsapp-popup');
+        let isWhatsAppOpen = false;
+
+        whatsappBtn.addEventListener('click', () => {
+            isWhatsAppOpen = !isWhatsAppOpen;
+            whatsappPopup.classList.toggle('hidden');
+            const icon = whatsappBtn.querySelector('i');
+            icon.setAttribute('data-lucide', isWhatsAppOpen ? 'x' : 'message-circle');
+            lucide.createIcons();
+        });
+
+        function sendWhatsApp(message) {
+            const phoneNumber = '1234567890';
+            const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+            whatsappPopup.classList.add('hidden');
+            isWhatsAppOpen = false;
+        }
+
+        // Dark mode toggle (visual only - always dark in this design)
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+        
+        [themeToggle, themeToggleMobile].forEach(btn => {
+            if (btn) {
+                btn.addEventListener('click', () => {
+                    document.documentElement.classList.toggle('dark');
+                    const isDark = document.documentElement.classList.contains('dark');
+                    const icon = btn.querySelector('i');
+                    icon.setAttribute('data-lucide', isDark ? 'sun' : 'moon');
+                    lucide.createIcons();
+                });
+            }
+        });
+    </script>
+    {% block extra_scripts %}{% endblock %}
+</body>
+</html>

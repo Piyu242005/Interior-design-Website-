@@ -1,0 +1,276 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Hero Section with Glassmorphism -->
+<section class="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
+    <!-- Animated gradient background -->
+    <div class="absolute inset-0 bg-gradient-to-br from-purple-900 via-slate-900 to-indigo-900">
+        <div class="absolute inset-0 bg-cover bg-center opacity-20"
+             style="background-image: url('https://images.pexels.com/photos/3797991/pexels-photo-3797991.jpeg?auto=compress&cs=tinysrgb&w=1920');"></div>
+        <!-- Floating orbs -->
+        <div class="absolute top-20 left-20 w-72 h-72 bg-purple-500/30 rounded-full blur-3xl animate-pulse"></div>
+        <div class="absolute bottom-20 right-20 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
+        <div class="absolute top-1/2 left-1/2 w-64 h-64 bg-amber-500/20 rounded-full blur-3xl animate-pulse" style="animation-delay: 2s;"></div>
+    </div>
+
+    <div class="relative z-10 text-center px-4 max-w-4xl mx-auto pt-20">
+        <!-- Glass card for hero content -->
+        <div class="backdrop-blur-xl bg-white/10 border border-white/20 rounded-3xl p-12 shadow-2xl">
+            <h1 class="text-5xl md:text-7xl font-light mb-6 text-white tracking-tight">
+                Get In <span class="bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">Touch</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-white/80 max-w-2xl mx-auto font-light">
+                Ready to start your design journey? We'd love to hear from you.
+            </p>
+        </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+        <div class="w-6 h-10 border-2 border-white/30 rounded-full flex items-start justify-center p-2">
+            <div class="w-1.5 h-1.5 bg-white rounded-full"></div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Form Section -->
+<section class="relative py-24 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-slate-900 via-purple-900/50 to-slate-900"></div>
+    <div class="absolute inset-0">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            
+            <!-- Contact Info Panel -->
+            <div class="backdrop-blur-xl bg-white/5 border border-white/10 rounded-3xl p-8 md:p-12 shadow-2xl">
+                <h2 class="text-3xl md:text-4xl font-light mb-6 text-white">
+                    Contact <span class="bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">Information</span>
+                </h2>
+                <p class="text-white/60 mb-10 text-lg">
+                    Fill up the form and our team will get back to you within 24 hours.
+                </p>
+
+                <div class="space-y-8">
+                    <div class="flex items-start space-x-4 group">
+                        <div class="w-14 h-14 backdrop-blur-xl bg-gradient-to-br from-amber-500/20 to-orange-600/20 border border-amber-500/30 rounded-2xl flex items-center justify-center group-hover:from-amber-500/40 group-hover:to-orange-600/40 transition-all duration-300 shadow-lg">
+                            <i data-lucide="phone" class="w-6 h-6 text-amber-400"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-white/50 mb-1">Phone</p>
+                            <p class="text-white font-medium text-lg">+91 98765 43210</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4 group">
+                        <div class="w-14 h-14 backdrop-blur-xl bg-gradient-to-br from-amber-500/20 to-orange-600/20 border border-amber-500/30 rounded-2xl flex items-center justify-center group-hover:from-amber-500/40 group-hover:to-orange-600/40 transition-all duration-300 shadow-lg">
+                            <i data-lucide="mail" class="w-6 h-6 text-amber-400"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-white/50 mb-1">Email</p>
+                            <p class="text-white font-medium text-lg">hello@dnest.design</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4 group">
+                        <div class="w-14 h-14 backdrop-blur-xl bg-gradient-to-br from-amber-500/20 to-orange-600/20 border border-amber-500/30 rounded-2xl flex items-center justify-center group-hover:from-amber-500/40 group-hover:to-orange-600/40 transition-all duration-300 shadow-lg">
+                            <i data-lucide="map-pin" class="w-6 h-6 text-amber-400"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-white/50 mb-1">Location</p>
+                            <p class="text-white font-medium text-lg">123 Design Street, Mumbai</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4 group">
+                        <div class="w-14 h-14 backdrop-blur-xl bg-gradient-to-br from-amber-500/20 to-orange-600/20 border border-amber-500/30 rounded-2xl flex items-center justify-center group-hover:from-amber-500/40 group-hover:to-orange-600/40 transition-all duration-300 shadow-lg">
+                            <i data-lucide="clock" class="w-6 h-6 text-amber-400"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-white/50 mb-1">Hours</p>
+                            <p class="text-white font-medium text-lg">Mon - Sat: 10am - 7pm</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Links -->
+                <div class="mt-12 pt-8 border-t border-white/10">
+                    <p class="text-white/50 mb-4">Follow us</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-12 h-12 backdrop-blur-xl bg-white/10 border border-white/20 rounded-xl flex items-center justify-center text-white/70 hover:text-white hover:bg-white/20 transition-all duration-300">
+                            <i data-lucide="instagram" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 backdrop-blur-xl bg-white/10 border border-white/20 rounded-xl flex items-center justify-center text-white/70 hover:text-white hover:bg-white/20 transition-all duration-300">
+                            <i data-lucide="twitter" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 backdrop-blur-xl bg-white/10 border border-white/20 rounded-xl flex items-center justify-center text-white/70 hover:text-white hover:bg-white/20 transition-all duration-300">
+                            <i data-lucide="linkedin" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="backdrop-blur-xl bg-white/5 border border-white/10 rounded-3xl p-8 md:p-12 shadow-2xl">
+                <h2 class="text-3xl md:text-4xl font-light mb-8 text-white">
+                    Send us a <span class="bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">Message</span>
+                </h2>
+
+                <form id="contact-form" class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-sm text-white/70 mb-2">Your Name</label>
+                        <input type="text" id="name" name="name" required
+                               class="w-full px-4 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/30 focus:outline-none focus:border-amber-500/50 focus:ring-2 focus:ring-amber-500/20 transition-all"
+                               placeholder="John Doe">
+                    </div>
+
+                    <div>
+                        <label for="email" class="block text-sm text-white/70 mb-2">Email Address</label>
+                        <input type="email" id="email" name="email" required
+                               class="w-full px-4 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/30 focus:outline-none focus:border-amber-500/50 focus:ring-2 focus:ring-amber-500/20 transition-all"
+                               placeholder="john@example.com">
+                    </div>
+
+                    <div>
+                        <label for="phone" class="block text-sm text-white/70 mb-2">Phone Number (Optional)</label>
+                        <input type="tel" id="phone" name="phone"
+                               class="w-full px-4 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/30 focus:outline-none focus:border-amber-500/50 focus:ring-2 focus:ring-amber-500/20 transition-all"
+                               placeholder="+91 98765 43210">
+                    </div>
+
+                    <div>
+                        <label for="message" class="block text-sm text-white/70 mb-2">Your Message</label>
+                        <textarea id="message" name="message" rows="5" required
+                                  class="w-full px-4 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/30 focus:outline-none focus:border-amber-500/50 focus:ring-2 focus:ring-amber-500/20 transition-all resize-none"
+                                  placeholder="Tell us about your project..."></textarea>
+                    </div>
+
+                    <button type="submit" id="submit-btn"
+                            class="w-full px-8 py-4 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-amber-500/25 transition-all duration-300 hover:scale-[1.02] flex items-center justify-center">
+                        <span id="btn-text">Send Message</span>
+                        <i data-lucide="send" class="ml-2 w-5 h-5" id="btn-icon"></i>
+                    </button>
+                </form>
+
+                <!-- Success/Error Message -->
+                <div id="form-message" class="mt-6 hidden">
+                    <div class="p-4 rounded-xl"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Map Section -->
+<section class="relative py-24 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-slate-900 to-slate-800"></div>
+    
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="text-4xl md:text-5xl font-light mb-4 text-white">
+                Visit Our <span class="bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">Studio</span>
+            </h2>
+            <p class="text-white/60 text-lg max-w-2xl mx-auto">
+                Come experience our design philosophy in person
+            </p>
+        </div>
+
+        <div class="backdrop-blur-xl bg-white/5 border border-white/10 rounded-3xl overflow-hidden shadow-2xl">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.9897089851474!2d72.8776559!3d19.0759837!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c6306644edc1%3A0x5da4ed8f8d648c69!2sMumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1635000000000!5m2!1sen!2sin"
+                width="100%" 
+                height="450" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy"
+                class="opacity-80 hover:opacity-100 transition-opacity">
+            </iframe>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+    document.getElementById('contact-form').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const submitBtn = document.getElementById('submit-btn');
+        const btnText = document.getElementById('btn-text');
+        const btnIcon = document.getElementById('btn-icon');
+        const formMessage = document.getElementById('form-message');
+        
+        // Disable button and show loading
+        submitBtn.disabled = true;
+        btnText.textContent = 'Sending...';
+        btnIcon.setAttribute('data-lucide', 'loader-2');
+        btnIcon.classList.add('animate-spin');
+        lucide.createIcons();
+        
+        const formData = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            phone: document.getElementById('phone').value,
+            message: document.getElementById('message').value
+        };
+        
+        try {
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            });
+            
+            const data = await response.json();
+            
+            formMessage.classList.remove('hidden');
+            const messageDiv = formMessage.querySelector('div');
+            
+            if (data.success) {
+                messageDiv.className = 'p-4 rounded-xl bg-green-500/20 border border-green-500/30 text-green-400';
+                messageDiv.innerHTML = `
+                    <div class="flex items-center">
+                        <i data-lucide="check-circle" class="w-5 h-5 mr-2"></i>
+                        ${data.message}
+                    </div>
+                `;
+                // Reset form
+                document.getElementById('contact-form').reset();
+            } else {
+                messageDiv.className = 'p-4 rounded-xl bg-red-500/20 border border-red-500/30 text-red-400';
+                messageDiv.innerHTML = `
+                    <div class="flex items-center">
+                        <i data-lucide="alert-circle" class="w-5 h-5 mr-2"></i>
+                        ${data.error || 'Something went wrong. Please try again.'}
+                    </div>
+                `;
+            }
+        } catch (error) {
+            formMessage.classList.remove('hidden');
+            const messageDiv = formMessage.querySelector('div');
+            messageDiv.className = 'p-4 rounded-xl bg-red-500/20 border border-red-500/30 text-red-400';
+            messageDiv.innerHTML = `
+                <div class="flex items-center">
+                    <i data-lucide="alert-circle" class="w-5 h-5 mr-2"></i>
+                    Network error. Please try again.
+                </div>
+            `;
+        } finally {
+            // Re-enable button
+            submitBtn.disabled = false;
+            btnText.textContent = 'Send Message';
+            btnIcon.classList.remove('animate-spin');
+            btnIcon.setAttribute('data-lucide', 'send');
+            lucide.createIcons();
+        }
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        lucide.createIcons();
+    });
+</script>
+{% endblock %}
