@@ -1,0 +1,243 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Hero Section with Glassmorphism -->
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <!-- Animated Gradient Background -->
+    <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+        <div class="absolute inset-0 opacity-30">
+            <div class="absolute top-20 left-20 w-72 h-72 bg-amber-500 rounded-full mix-blend-multiply filter blur-3xl animate-pulse"></div>
+            <div class="absolute top-40 right-20 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
+            <div class="absolute bottom-20 left-1/2 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl animate-pulse" style="animation-delay: 0.5s;"></div>
+        </div>
+    </div>
+
+    <!-- Floating Glass Cards -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <div class="absolute top-1/4 left-10 w-32 h-32 bg-white/10 backdrop-blur-lg rounded-2xl border border-white/20 rotate-12 animate-bounce" style="animation-duration: 3s;"></div>
+        <div class="absolute bottom-1/4 right-10 w-24 h-24 bg-white/10 backdrop-blur-lg rounded-2xl border border-white/20 -rotate-12 animate-bounce" style="animation-duration: 4s;"></div>
+        <div class="absolute top-1/3 right-1/4 w-16 h-16 bg-amber-500/20 backdrop-blur-lg rounded-xl border border-amber-500/30 rotate-45 animate-bounce" style="animation-duration: 5s;"></div>
+    </div>
+
+    <div class="relative z-10 text-center text-white px-4 max-w-5xl mx-auto">
+        <!-- Glass Badge -->
+        <div class="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-6 py-3 mb-8">
+            <i data-lucide="sparkles" class="text-amber-400 w-5 h-5"></i>
+            <span class="text-sm font-medium">Premium Design Services</span>
+        </div>
+
+        <h1 class="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white via-amber-200 to-white">
+            Crafting Dream Spaces
+        </h1>
+        
+        <p class="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
+            From concept to completion, we transform ordinary spaces into extraordinary experiences
+        </p>
+
+        <!-- Glass Stats Bar -->
+        <div class="bg-white/10 backdrop-blur-xl rounded-2xl border border-white/20 p-6 md:p-8 max-w-4xl mx-auto">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                {% for stat in stats %}
+                <div class="text-center">
+                    <div class="text-3xl md:text-4xl font-bold text-amber-400 mb-1">{{ stat.value }}</div>
+                    <div class="text-sm text-gray-400">{{ stat.label }}</div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2">
+        <div class="w-6 h-10 border-2 border-white/30 rounded-full flex items-start justify-center p-2">
+            <div class="w-1.5 h-1.5 bg-white rounded-full animate-bounce"></div>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Projects Section -->
+<section class="relative py-24 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900"></div>
+    
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+                Featured <span class="text-amber-400">Projects</span>
+            </h2>
+            <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+                Showcasing our finest work in modern architecture and interior design
+            </p>
+        </div>
+
+        <!-- Large Featured Images with Glass Overlay -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+            <!-- Dark Modern House -->
+            <div class="group relative rounded-3xl overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80"
+                     alt="Modern Dark Architecture"
+                     class="w-full h-[500px] object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 right-0 p-8">
+                    <div class="bg-white/10 backdrop-blur-xl rounded-2xl border border-white/20 p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <i data-lucide="star" class="text-amber-400 fill-amber-400 w-4 h-4"></i>
+                            <span class="text-amber-400 text-sm font-medium">Featured Project</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2">Modern Dark Villa</h3>
+                        <p class="text-gray-300 text-sm">Minimalist design with premium finishes and smart home integration</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- White Modern House -->
+            <div class="group relative rounded-3xl overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
+                     alt="Modern White Architecture"
+                     class="w-full h-[500px] object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 right-0 p-8">
+                    <div class="bg-white/10 backdrop-blur-xl rounded-2xl border border-white/20 p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <i data-lucide="star" class="text-amber-400 fill-amber-400 w-4 h-4"></i>
+                            <span class="text-amber-400 text-sm font-medium">Featured Project</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2">Contemporary White House</h3>
+                        <p class="text-gray-300 text-sm">Clean lines, natural light, and seamless indoor-outdoor living</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Grid with Glassmorphism -->
+<section class="relative py-24 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-purple-900/50 to-slate-900"></div>
+    
+    <!-- Background Decorations -->
+    <div class="absolute inset-0 overflow-hidden">
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-amber-500/10 rounded-full filter blur-3xl"></div>
+        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full filter blur-3xl"></div>
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+                Our <span class="text-amber-400">Services</span>
+            </h2>
+            <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+                Comprehensive design solutions tailored to bring your vision to life
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {% for service in services %}
+            <div class="group relative bg-white/5 backdrop-blur-xl rounded-3xl border border-white/10 overflow-hidden hover:bg-white/10 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-amber-500/10">
+                <!-- Service Image -->
+                <div class="relative h-48 overflow-hidden">
+                    <img src="{{ service.image }}" alt="{{ service.title }}"
+                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent"></div>
+                    
+                    <!-- Icon Badge -->
+                    <div class="absolute bottom-4 left-4 w-14 h-14 bg-gradient-to-br {{ service.gradient }} rounded-2xl flex items-center justify-center shadow-lg">
+                        <i data-lucide="{{ service.icon }}" class="text-white w-7 h-7"></i>
+                    </div>
+                </div>
+
+                <!-- Content -->
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-white mb-3">{{ service.title }}</h3>
+                    <p class="text-gray-400 text-sm mb-4 leading-relaxed">{{ service.description }}</p>
+                    
+                    <!-- Features -->
+                    <div class="space-y-2">
+                        {% for feature in service.features %}
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="check-circle-2" class="text-amber-400 flex-shrink-0 w-4 h-4"></i>
+                            <span class="text-gray-300 text-sm">{{ feature }}</span>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <!-- Hover Glow Effect -->
+                <div class="absolute inset-0 bg-gradient-to-br {{ service.gradient }} opacity-0 group-hover:opacity-5 transition-opacity duration-500"></div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Process Section -->
+<section class="relative py-24 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-slate-900 to-slate-800"></div>
+    
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+                Our <span class="text-amber-400">Process</span>
+            </h2>
+            <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+                A streamlined approach ensuring exceptional results every time
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {% for item in process %}
+            <div class="relative group">
+                <!-- Connector Line -->
+                {% if not loop.last %}
+                <div class="hidden lg:block absolute top-1/2 -right-3 w-6 h-0.5 bg-gradient-to-r from-amber-500 to-transparent"></div>
+                {% endif %}
+                
+                <div class="bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 p-8 text-center hover:bg-white/10 transition-all duration-300 hover:scale-105">
+                    <div class="text-5xl font-bold bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent mb-4">
+                        {{ item.step }}
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">{{ item.title }}</h3>
+                    <p class="text-gray-400 text-sm">{{ item.desc }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="relative py-24 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-amber-600 via-orange-600 to-amber-700"></div>
+    
+    <!-- Glass Decorations -->
+    <div class="absolute inset-0 overflow-hidden">
+        <div class="absolute top-10 left-10 w-32 h-32 bg-white/10 backdrop-blur-lg rounded-full"></div>
+        <div class="absolute bottom-10 right-10 w-48 h-48 bg-white/10 backdrop-blur-lg rounded-full"></div>
+        <div class="absolute top-1/2 left-1/3 w-24 h-24 bg-white/10 backdrop-blur-lg rounded-full"></div>
+    </div>
+
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="bg-white/10 backdrop-blur-xl rounded-3xl border border-white/20 p-12">
+            <i data-lucide="sparkles" class="mx-auto text-white mb-6 w-12 h-12"></i>
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+                Ready to Transform Your Space?
+            </h2>
+            <p class="text-white/80 text-lg mb-8 max-w-2xl mx-auto">
+                Let's collaborate to create something extraordinary. Schedule a free consultation and let's bring your vision to life.
+            </p>
+            <a href="{{ url_for('contact') }}" 
+               class="inline-flex items-center px-8 py-4 bg-white text-amber-600 font-semibold rounded-full hover:bg-gray-100 transition-all duration-300 hover:scale-105">
+                Start Your Project
+                <i data-lucide="arrow-right" class="ml-2 w-5 h-5"></i>
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        lucide.createIcons();
+    });
+</script>
+{% endblock %}

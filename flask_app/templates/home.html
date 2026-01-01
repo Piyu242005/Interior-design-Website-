@@ -1,0 +1,240 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Hero Section - Cinematic Full Screen -->
+<section class="relative min-h-screen flex items-center justify-center">
+    <!-- Video/Image Background with Overlay -->
+    <div class="absolute inset-0">
+        <div class="absolute inset-0 bg-cover bg-center bg-fixed"
+             style="background-image: url('https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1920');">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-slate-900"></div>
+        
+        <!-- Animated Gradient Orbs -->
+        <div class="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-purple-600/20 rounded-full blur-[120px] animate-pulse"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-amber-500/15 rounded-full blur-[150px] animate-pulse" style="animation-delay: 2s;"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-blue-500/10 rounded-full blur-[100px] animate-pulse" style="animation-delay: 4s;"></div>
+    </div>
+
+    <!-- Hero Content -->
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <!-- Left Content -->
+            <div class="text-left">
+                <!-- Badge -->
+                <div class="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full px-5 py-2 mb-8">
+                    <i data-lucide="sparkles" class="w-4 h-4 text-amber-400"></i>
+                    <span class="text-sm text-white/90 font-medium">Award-Winning Design Studio</span>
+                </div>
+
+                <!-- Main Heading -->
+                <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-[1.1] mb-6">
+                    We Create
+                    <span class="block mt-2 bg-gradient-to-r from-amber-400 via-orange-400 to-rose-400 bg-clip-text text-transparent">
+                        Living Art
+                    </span>
+                </h1>
+
+                <p class="text-lg sm:text-xl text-white/70 max-w-xl mb-10 leading-relaxed">
+                    Transform your space into a masterpiece. We blend innovation with elegance to craft interiors that inspire and elevate everyday living.
+                </p>
+
+                <!-- CTA Buttons -->
+                <div class="flex flex-wrap gap-4">
+                    <a href="{{ url_for('portfolio') }}" 
+                       class="group relative px-8 py-4 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-semibold rounded-full overflow-hidden shadow-lg shadow-amber-500/25 hover:shadow-amber-500/40 transition-all duration-300 hover:scale-105">
+                        <span class="relative z-10 flex items-center">
+                            View Our Work
+                            <i data-lucide="arrow-right" class="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                        </span>
+                    </a>
+                    <a href="{{ url_for('contact') }}"
+                       class="px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 text-white font-semibold rounded-full hover:bg-white/20 transition-all duration-300">
+                        Get In Touch
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Content - Stats Cards -->
+            <div class="hidden lg:grid grid-cols-2 gap-4">
+                {% for stat in stats %}
+                <div class="backdrop-blur-xl bg-white/10 border border-white/20 rounded-2xl p-6 hover:bg-white/15 transition-all duration-300 hover:scale-105">
+                    <div class="w-12 h-12 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center mb-4">
+                        <i data-lucide="{{ stat.icon }}" class="w-6 h-6 text-white"></i>
+                    </div>
+                    <div class="text-3xl font-bold text-white mb-1">{{ stat.value }}</div>
+                    <div class="text-white/60 text-sm">{{ stat.label }}</div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+        <a href="#services" class="flex flex-col items-center text-white/50 hover:text-white/80 transition-colors">
+            <span class="text-sm mb-2">Scroll to explore</span>
+            <i data-lucide="chevron-down" class="w-6 h-6"></i>
+        </a>
+    </div>
+</section>
+
+<!-- Services Preview Section -->
+<section id="services" class="relative py-24 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-slate-900 via-purple-900/30 to-slate-900"></div>
+    <div class="absolute inset-0">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl"></div>
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-light mb-4 text-white">
+                Our <span class="bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">Services</span>
+            </h2>
+            <p class="text-white/60 text-lg max-w-2xl mx-auto">
+                Comprehensive design solutions tailored to bring your vision to life
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {% for service in services %}
+            <div class="group backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 hover:scale-105 hover:border-amber-500/30">
+                <div class="w-14 h-14 bg-gradient-to-br {{ service.gradient }} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                    <i data-lucide="{{ service.icon }}" class="w-7 h-7 text-white"></i>
+                </div>
+                <h3 class="text-xl font-medium text-white mb-2">{{ service.title }}</h3>
+                <p class="text-white/60 text-sm">{{ service.description[:100] }}...</p>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="text-center mt-12">
+            <a href="{{ url_for('services') }}" class="inline-flex items-center text-amber-400 hover:text-amber-300 transition-colors">
+                View All Services
+                <i data-lucide="arrow-right" class="ml-2 w-5 h-5"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Projects Section -->
+<section class="relative py-24 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-slate-900 to-slate-800"></div>
+    
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-light mb-4 text-white">
+                Featured <span class="bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">Projects</span>
+            </h2>
+            <p class="text-white/60 text-lg max-w-2xl mx-auto">
+                Showcasing our finest work in modern architecture and interior design
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {% for project in featured_projects[:6] %}
+            <div class="group relative rounded-2xl overflow-hidden">
+                <img src="{{ project.image_url }}" alt="{{ project.title }}" 
+                     class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 right-0 p-6">
+                    <div class="flex items-center gap-2 mb-2">
+                        <i data-lucide="star" class="w-4 h-4 text-amber-400 fill-amber-400"></i>
+                        <span class="text-amber-400 text-sm font-medium">Featured</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-1">{{ project.title }}</h3>
+                    <p class="text-gray-300 text-sm">{{ project.location }} • {{ project.year }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="text-center mt-12">
+            <a href="{{ url_for('portfolio') }}" 
+               class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-semibold rounded-full hover:shadow-lg hover:shadow-amber-500/25 transition-all duration-300">
+                View All Projects
+                <i data-lucide="arrow-right" class="ml-2 w-5 h-5"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="relative py-24 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-slate-800 via-purple-900/30 to-slate-900"></div>
+    <div class="absolute inset-0">
+        <div class="absolute top-1/2 left-1/4 w-72 h-72 bg-amber-500/10 rounded-full blur-3xl"></div>
+        <div class="absolute top-1/3 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-light mb-4 text-white">
+                Client <span class="bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">Testimonials</span>
+            </h2>
+            <p class="text-white/60 text-lg max-w-2xl mx-auto">
+                What our clients say about their experience with us
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {% for testimonial in testimonials %}
+            <div class="backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-all duration-300">
+                <div class="flex items-center mb-4">
+                    {% for i in range(5) %}
+                    <i data-lucide="star" class="w-5 h-5 text-amber-400 fill-amber-400"></i>
+                    {% endfor %}
+                </div>
+                <p class="text-white/80 mb-6 italic">"{{ testimonial.text }}"</p>
+                <div class="flex items-center">
+                    <img src="{{ testimonial.image }}" alt="{{ testimonial.name }}" class="w-12 h-12 rounded-full object-cover mr-4">
+                    <div>
+                        <div class="text-white font-medium">{{ testimonial.name }}</div>
+                        <div class="text-white/60 text-sm">{{ testimonial.role }}</div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="relative py-24 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-amber-600 via-orange-600 to-amber-700"></div>
+    
+    <!-- Glass Decorations -->
+    <div class="absolute inset-0 overflow-hidden">
+        <div class="absolute top-10 left-10 w-32 h-32 bg-white/10 backdrop-blur-lg rounded-full"></div>
+        <div class="absolute bottom-10 right-10 w-48 h-48 bg-white/10 backdrop-blur-lg rounded-full"></div>
+        <div class="absolute top-1/2 left-1/3 w-24 h-24 bg-white/10 backdrop-blur-lg rounded-full"></div>
+    </div>
+
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="bg-white/10 backdrop-blur-xl rounded-3xl border border-white/20 p-12">
+            <i data-lucide="sparkles" class="mx-auto text-white mb-6 w-12 h-12"></i>
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+                Ready to Transform Your Space?
+            </h2>
+            <p class="text-white/80 text-lg mb-8 max-w-2xl mx-auto">
+                Let's collaborate to create something extraordinary. Schedule a free consultation and let's bring your vision to life.
+            </p>
+            <a href="{{ url_for('contact') }}" 
+               class="inline-flex items-center px-8 py-4 bg-white text-amber-600 font-semibold rounded-full hover:bg-gray-100 transition-all duration-300 hover:scale-105">
+                Start Your Project
+                <i data-lucide="arrow-right" class="ml-2 w-5 h-5"></i>
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+    // Re-initialize icons after page load
+    document.addEventListener('DOMContentLoaded', function() {
+        lucide.createIcons();
+    });
+</script>
+{% endblock %}

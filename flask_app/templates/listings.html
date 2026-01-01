@@ -1,0 +1,230 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Hero Section with Glassmorphism -->
+<section class="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
+    <!-- Animated gradient background -->
+    <div class="absolute inset-0 bg-gradient-to-br from-purple-900 via-slate-900 to-indigo-900">
+        <div class="absolute inset-0 bg-cover bg-center opacity-20"
+             style="background-image: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920');"></div>
+        <!-- Floating orbs -->
+        <div class="absolute top-20 left-20 w-72 h-72 bg-purple-500/30 rounded-full blur-3xl animate-pulse"></div>
+        <div class="absolute bottom-20 right-20 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
+        <div class="absolute top-1/2 left-1/2 w-64 h-64 bg-amber-500/20 rounded-full blur-3xl animate-pulse" style="animation-delay: 2s;"></div>
+    </div>
+
+    <div class="relative z-10 text-center px-4 max-w-4xl mx-auto pt-20">
+        <!-- Glass card for hero content -->
+        <div class="backdrop-blur-xl bg-white/10 border border-white/20 rounded-3xl p-12 shadow-2xl">
+            <h1 class="text-5xl md:text-7xl font-light mb-6 text-white tracking-tight">
+                Property <span class="bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">Listings</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-white/80 max-w-2xl mx-auto font-light">
+                Discover beautifully designed properties ready for you to call home
+            </p>
+        </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+        <div class="w-6 h-10 border-2 border-white/30 rounded-full flex items-start justify-center p-2">
+            <div class="w-1.5 h-1.5 bg-white rounded-full"></div>
+        </div>
+    </div>
+</section>
+
+<!-- Listings Grid Section -->
+<section class="relative py-24 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-slate-900 via-purple-900/30 to-slate-900"></div>
+    <div class="absolute inset-0">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl"></div>
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Filter Tabs -->
+        <div class="flex flex-wrap justify-center gap-4 mb-12">
+            <button onclick="filterListings('all')" id="listing-filter-all"
+                    class="listing-filter-btn px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 bg-gradient-to-r from-amber-500 to-orange-600 text-white">
+                All Properties
+            </button>
+            <button onclick="filterListings('Apartment')" id="listing-filter-Apartment"
+                    class="listing-filter-btn px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 bg-white/10 text-white/70 hover:bg-white/20">
+                <i data-lucide="building" class="w-4 h-4 inline mr-2"></i>Apartments
+            </button>
+            <button onclick="filterListings('Villa')" id="listing-filter-Villa"
+                    class="listing-filter-btn px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 bg-white/10 text-white/70 hover:bg-white/20">
+                <i data-lucide="home" class="w-4 h-4 inline mr-2"></i>Villas
+            </button>
+            <button onclick="filterListings('Penthouse')" id="listing-filter-Penthouse"
+                    class="listing-filter-btn px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 bg-white/10 text-white/70 hover:bg-white/20">
+                <i data-lucide="building-2" class="w-4 h-4 inline mr-2"></i>Penthouses
+            </button>
+        </div>
+
+        <!-- Listings Grid -->
+        <div id="listings-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {% for listing in listings %}
+            <div class="listing-item group backdrop-blur-xl bg-white/5 border border-white/10 rounded-3xl overflow-hidden hover:bg-white/10 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-amber-500/10"
+                 data-type="{{ listing.type }}">
+                <!-- Image -->
+                <div class="relative h-64 overflow-hidden">
+                    <img src="{{ listing.image }}" alt="{{ listing.title }}"
+                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
+                    
+                    <!-- Price Badge -->
+                    <div class="absolute top-4 right-4 backdrop-blur-xl bg-gradient-to-r from-amber-500 to-orange-600 px-4 py-2 rounded-full">
+                        <span class="text-white font-bold">{{ listing.price }}</span>
+                    </div>
+                    
+                    <!-- Type Badge -->
+                    <div class="absolute top-4 left-4 backdrop-blur-xl bg-white/20 px-3 py-1 rounded-full">
+                        <span class="text-white text-sm">{{ listing.type }}</span>
+                    </div>
+                </div>
+
+                <!-- Content -->
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-white mb-2">{{ listing.title }}</h3>
+                    <div class="flex items-center text-white/60 mb-4">
+                        <i data-lucide="map-pin" class="w-4 h-4 mr-2"></i>
+                        <span class="text-sm">{{ listing.location }}</span>
+                    </div>
+
+                    <!-- Features -->
+                    <div class="flex items-center justify-between py-4 border-t border-white/10">
+                        <div class="flex items-center text-white/70">
+                            <i data-lucide="bed" class="w-5 h-5 mr-2"></i>
+                            <span class="text-sm">{{ listing.bedrooms }} Beds</span>
+                        </div>
+                        <div class="flex items-center text-white/70">
+                            <i data-lucide="bath" class="w-5 h-5 mr-2"></i>
+                            <span class="text-sm">{{ listing.bathrooms }} Baths</span>
+                        </div>
+                        <div class="flex items-center text-white/70">
+                            <i data-lucide="square" class="w-5 h-5 mr-2"></i>
+                            <span class="text-sm">{{ listing.area }}</span>
+                        </div>
+                    </div>
+
+                    <!-- CTA Button -->
+                    <a href="{{ url_for('contact') }}" 
+                       class="mt-4 w-full inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-amber-500/20 to-orange-600/20 border border-amber-500/30 text-amber-400 font-medium rounded-full hover:from-amber-500 hover:to-orange-600 hover:text-white transition-all duration-300">
+                        View Details
+                        <i data-lucide="arrow-right" class="ml-2 w-5 h-5"></i>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Why Choose Us Section -->
+<section class="relative py-24 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-slate-900 to-slate-800"></div>
+    
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-light mb-4 text-white">
+                Why Choose <span class="bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">D NEST</span>
+            </h2>
+            <p class="text-white/60 text-lg max-w-2xl mx-auto">
+                Experience luxury living with our carefully curated property selections
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-8 text-center hover:bg-white/10 transition-all duration-300">
+                <div class="w-16 h-16 bg-gradient-to-br from-amber-500 to-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                    <i data-lucide="shield-check" class="w-8 h-8 text-white"></i>
+                </div>
+                <h3 class="text-xl font-medium text-white mb-3">Verified Properties</h3>
+                <p class="text-white/60">All listings are thoroughly verified for authenticity and quality assurance.</p>
+            </div>
+            <div class="backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-8 text-center hover:bg-white/10 transition-all duration-300">
+                <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                    <i data-lucide="users" class="w-8 h-8 text-white"></i>
+                </div>
+                <h3 class="text-xl font-medium text-white mb-3">Expert Guidance</h3>
+                <p class="text-white/60">Our experienced team provides personalized support throughout your journey.</p>
+            </div>
+            <div class="backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-8 text-center hover:bg-white/10 transition-all duration-300">
+                <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                    <i data-lucide="palette" class="w-8 h-8 text-white"></i>
+                </div>
+                <h3 class="text-xl font-medium text-white mb-3">Design Ready</h3>
+                <p class="text-white/60">Each property comes with optional interior design consultation services.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="relative py-24 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-amber-600 via-orange-600 to-amber-700"></div>
+    
+    <div class="absolute inset-0 overflow-hidden">
+        <div class="absolute top-10 left-10 w-32 h-32 bg-white/10 backdrop-blur-lg rounded-full"></div>
+        <div class="absolute bottom-10 right-10 w-48 h-48 bg-white/10 backdrop-blur-lg rounded-full"></div>
+    </div>
+
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="bg-white/10 backdrop-blur-xl rounded-3xl border border-white/20 p-12">
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+                Find Your Dream Home
+            </h2>
+            <p class="text-white/80 text-lg mb-8 max-w-2xl mx-auto">
+                Can't find what you're looking for? Contact us and we'll help you find the perfect property.
+            </p>
+            <a href="{{ url_for('contact') }}" 
+               class="inline-flex items-center px-8 py-4 bg-white text-amber-600 font-semibold rounded-full hover:bg-gray-100 transition-all duration-300 hover:scale-105">
+                Contact Us Today
+                <i data-lucide="arrow-right" class="ml-2 w-5 h-5"></i>
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+    function filterListings(type) {
+        // Update button styles
+        document.querySelectorAll('.listing-filter-btn').forEach(btn => {
+            btn.classList.remove('bg-gradient-to-r', 'from-amber-500', 'to-orange-600', 'text-white');
+            btn.classList.add('bg-white/10', 'text-white/70');
+        });
+        
+        const activeBtn = document.getElementById(`listing-filter-${type}`);
+        activeBtn.classList.remove('bg-white/10', 'text-white/70');
+        activeBtn.classList.add('bg-gradient-to-r', 'from-amber-500', 'to-orange-600', 'text-white');
+        
+        // Filter items
+        document.querySelectorAll('.listing-item').forEach(item => {
+            const itemType = item.dataset.type;
+            if (type === 'all' || itemType === type) {
+                item.style.display = 'block';
+                item.style.animation = 'fadeIn 0.5s ease-out';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    }
+
+    // Add fade-in animation
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    `;
+    document.head.appendChild(style);
+
+    document.addEventListener('DOMContentLoaded', function() {
+        lucide.createIcons();
+    });
+</script>
+{% endblock %}
