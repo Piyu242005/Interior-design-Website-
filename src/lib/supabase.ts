@@ -1,9 +1,28 @@
-import { createClient } from '@supabase/supabase-js';
+import { createClient, SupabaseClient } from '@supabase/supabase-js';
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || '';
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || '';
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+// Create a mock client that returns empty data when Supabase is not configured
+const createMockClient = () => ({
+  from: () => ({
+    select: () => ({
+      eq: () => ({
+        limit: () => Promise.resolve({ data: [], error: null }),
+      }),
+      order: () => ({
+        limit: () => Promise.resolve({ data: [], error: null }),
+      }),
+      limit: () => Promise.resolve({ data: [], error: null }),
+    }),
+    insert: () => Promise.resolve({ data: null, error: null }),
+  }),
+});
+
+export const supabase: SupabaseClient | ReturnType<typeof createMockClient> = 
+  supabaseUrl && supabaseAnonKey 
+    ? createClient(supabaseUrl, supabaseAnonKey)
+    : createMockClient() as any;
 
 export type PortfolioItem = {
   id: string;

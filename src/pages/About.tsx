@@ -1,5 +1,4 @@
-import { Award, Heart, Lightbulb, Users } from 'lucide-react';
-import { Section, SectionTitle, SectionSubtitle } from '../components/Section';
+import { Award, Heart, Lightbulb, Users, Code, Wrench } from 'lucide-react';
 import { Button } from '../components/Button';
 
 interface AboutProps {
@@ -9,198 +8,272 @@ interface AboutProps {
 export function About({ onNavigate }: AboutProps) {
   const team = [
     {
-      name: 'Diana Stevens',
-      role: 'Founder & Creative Director',
-      image: 'https://images.pexels.com/photos/3756679/pexels-photo-3756679.jpeg?auto=compress&cs=tinysrgb&w=400',
-      bio: 'With over 15 years in luxury interior design, Diana brings vision and sophistication to every project.'
-    },
-    {
-      name: 'Marcus Chen',
-      role: 'Lead Interior Architect',
+      name: 'Piyush Ramteke',
+      role: 'Founder & Lead Developer',
       image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400',
-      bio: 'Marcus specializes in spatial planning and architectural integration for seamless designs.'
+      bio: 'Piyush specializes in data-driven solutions, clean design, and efficient development. He focuses on building practical, user-friendly, and scalable projects with attention to detail.',
+      icon: Code
     },
     {
-      name: 'Sophia Martinez',
-      role: 'Senior Designer',
-      image: 'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=400',
-      bio: 'Sophia creates harmonious color palettes and material selections that define elegant spaces.'
-    },
-    {
-      name: 'James Anderson',
-      role: 'Project Manager',
+      name: 'Nikhil Sonone',
+      role: 'Co-Founder & Technical Associate',
       image: 'https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=400',
-      bio: 'James ensures every project is delivered on time and exceeds client expectations.'
+      bio: 'Nikhil contributes to development, problem-solving, and implementation support, ensuring projects are executed smoothly and meet performance expectations.',
+      icon: Wrench
     }
   ];
 
   const values = [
     {
       icon: Heart,
-      title: 'Client-Focused',
-      description: 'Your vision is at the heart of everything we do. We listen, understand, and create spaces that truly reflect your personality and needs.'
+      title: 'Quality',
+      description: 'We are committed to delivering high-quality work with attention to every detail, ensuring meaningful and effective results.'
     },
     {
       icon: Lightbulb,
-      title: 'Innovation',
-      description: 'We blend timeless elegance with cutting-edge design trends and sustainable practices to create spaces that stand the test of time.'
+      title: 'Creativity',
+      description: 'We combine creative ideas with practical solutions to create designs that are both attractive and functional for real users.'
     },
     {
       icon: Award,
-      title: 'Excellence',
-      description: 'Our commitment to quality and attention to detail has earned us recognition as one of the premier design studios in the industry.'
+      title: 'Continuous Improvement',
+      description: 'We believe in constantly learning and improving, staying updated with the latest trends and technologies to deliver the best.'
     }
   ];
 
   return (
-    <>
-      <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: 'url(https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg?auto=compress&cs=tinysrgb&w=1920)',
-          }}
-        >
-          <div className="absolute inset-0 bg-slate-900/60" />
+    <div className="min-h-screen">
+      {/* Hero Section with Glassmorphism */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Animated gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-slate-900 to-indigo-900">
+          <div className="absolute inset-0 bg-[url('https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg?auto=compress&cs=tinysrgb&w=1920')] bg-cover bg-center opacity-30" />
+          {/* Floating orbs */}
+          <div className="absolute top-20 left-20 w-72 h-72 bg-purple-500/30 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-20 right-20 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+          <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-amber-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
         </div>
 
-        <div className="relative z-10 text-center text-white px-4">
-          <h1 className="text-5xl md:text-6xl font-light mb-6">About D NEST</h1>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-            Crafting exceptional interiors since 2009
-          </p>
+        <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
+          {/* Glass card for hero content */}
+          <div className="backdrop-blur-xl bg-white/10 border border-white/20 rounded-3xl p-12 shadow-2xl">
+            <h1 className="text-5xl md:text-7xl font-light mb-6 text-white tracking-tight">
+              About <span className="bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">Piyu</span>
+            </h1>
+            <p className="text-xl md:text-2xl text-white/80 max-w-2xl mx-auto font-light">
+              Delivering visually appealing and user-friendly digital experiences
+            </p>
+          </div>
+        </div>
+
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+          <div className="w-6 h-10 border-2 border-white/30 rounded-full flex items-start justify-center p-2">
+            <div className="w-1.5 h-1.5 bg-white rounded-full" />
+          </div>
         </div>
       </section>
 
-      <Section>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div>
-            <SectionTitle className="text-left">Our Story</SectionTitle>
-            <div className="space-y-4 text-gray-700 leading-relaxed">
-              <p>
-                Founded in 2009 by Diana Stevens, D NEST Interior Design Studio emerged from a
-                passion for creating spaces that inspire and elevate everyday living. What began
-                as a boutique studio has grown into an award-winning design firm, recognized
-                for transforming residential and commercial spaces into timeless masterpieces.
-              </p>
-              <p>
-                Our approach combines classical design principles with contemporary innovation,
-                resulting in interiors that are both sophisticated and functional. We believe
-                that great design should not only be beautiful but should enhance the way you
-                live, work, and feel in your space.
-              </p>
-              <p>
-                Over the years, we've had the privilege of working with discerning clients who
-                value quality, creativity, and attention to detail. Each project is a unique
-                collaboration, and we take pride in bringing our clients' visions to life while
-                adding our signature touch of elegance and refinement.
-              </p>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-2 gap-4">
-            <img
-              src="https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg?auto=compress&cs=tinysrgb&w=600"
-              alt="Design detail"
-              className="rounded-sm shadow-lg"
-            />
-            <img
-              src="https://images.pexels.com/photos/1743231/pexels-photo-1743231.jpeg?auto=compress&cs=tinysrgb&w=600"
-              alt="Interior space"
-              className="rounded-sm shadow-lg mt-8"
-            />
-            <img
-              src="https://images.pexels.com/photos/2507010/pexels-photo-2507010.jpeg?auto=compress&cs=tinysrgb&w=600"
-              alt="Modern design"
-              className="rounded-sm shadow-lg -mt-8"
-            />
-            <img
-              src="https://images.pexels.com/photos/1350789/pexels-photo-1350789.jpeg?auto=compress&cs=tinysrgb&w=600"
-              alt="Elegant room"
-              className="rounded-sm shadow-lg"
-            />
-          </div>
+      {/* Our Story Section */}
+      <section className="relative py-24 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-900 via-purple-900/50 to-slate-900" />
+        <div className="absolute inset-0">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
         </div>
-      </Section>
 
-      <Section dark>
-        <SectionTitle>Our Core Values</SectionTitle>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mt-12">
-          {values.map((value, index) => {
-            const Icon = value.icon;
-            return (
-              <div key={index} className="text-center">
-                <div className="w-20 h-20 bg-amber-600 rounded-sm flex items-center justify-center mx-auto mb-6 transform hover:rotate-6 transition-transform">
-                  <Icon size={40} className="text-white" />
-                </div>
-                <h3 className="text-2xl font-light mb-4">{value.title}</h3>
-                <p className="text-gray-400 leading-relaxed">{value.description}</p>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-3xl p-8 md:p-12 shadow-2xl">
+              <h2 className="text-4xl md:text-5xl font-light mb-8 text-white">
+                Our <span className="bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">Story</span>
+              </h2>
+              <div className="space-y-6 text-white/70 leading-relaxed text-lg">
+                <p>
+                  Founded with a passion for clean, modern, and functional design, Piyu was created 
+                  to deliver visually appealing and user-friendly digital experiences. The focus is 
+                  on simplicity, clarity, and purposeful design that enhances usability and aesthetics.
+                </p>
+                <p>
+                  Each project is built with attention to detail, combining creative ideas with 
+                  practical solutions. The goal is to create designs that are not only attractive 
+                  but also meaningful and effective for real users.
+                </p>
+                <p>
+                  Created by Piyu, this platform reflects a commitment to quality, creativity, 
+                  and continuous improvement.
+                </p>
               </div>
-            );
-          })}
-        </div>
-      </Section>
+            </div>
 
-      <Section>
-        <SectionTitle>Meet Our Team</SectionTitle>
-        <SectionSubtitle>
-          Talented designers and architects dedicated to bringing your vision to life
-        </SectionSubtitle>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {team.map((member, index) => (
-            <div key={index} className="group">
-              <div className="aspect-square overflow-hidden rounded-sm mb-4 shadow-lg">
+            <div className="grid grid-cols-2 gap-4">
+              <div className="backdrop-blur-sm bg-white/5 border border-white/10 rounded-2xl p-2 shadow-xl hover:bg-white/10 transition-all duration-300 hover:scale-105">
                 <img
-                  src={member.image}
-                  alt={member.name}
-                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                  src="https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg?auto=compress&cs=tinysrgb&w=600"
+                  alt="Design detail"
+                  className="rounded-xl w-full h-full object-cover"
                 />
               </div>
-              <h3 className="text-xl font-medium mb-1">{member.name}</h3>
-              <p className="text-amber-600 text-sm mb-3">{member.role}</p>
-              <p className="text-gray-600 text-sm leading-relaxed">{member.bio}</p>
+              <div className="backdrop-blur-sm bg-white/5 border border-white/10 rounded-2xl p-2 shadow-xl mt-8 hover:bg-white/10 transition-all duration-300 hover:scale-105">
+                <img
+                  src="https://images.pexels.com/photos/1743231/pexels-photo-1743231.jpeg?auto=compress&cs=tinysrgb&w=600"
+                  alt="Interior space"
+                  className="rounded-xl w-full h-full object-cover"
+                />
+              </div>
+              <div className="backdrop-blur-sm bg-white/5 border border-white/10 rounded-2xl p-2 shadow-xl -mt-8 hover:bg-white/10 transition-all duration-300 hover:scale-105">
+                <img
+                  src="https://images.pexels.com/photos/2507010/pexels-photo-2507010.jpeg?auto=compress&cs=tinysrgb&w=600"
+                  alt="Modern design"
+                  className="rounded-xl w-full h-full object-cover"
+                />
+              </div>
+              <div className="backdrop-blur-sm bg-white/5 border border-white/10 rounded-2xl p-2 shadow-xl hover:bg-white/10 transition-all duration-300 hover:scale-105">
+                <img
+                  src="https://images.pexels.com/photos/1350789/pexels-photo-1350789.jpeg?auto=compress&cs=tinysrgb&w=600"
+                  alt="Elegant room"
+                  className="rounded-xl w-full h-full object-cover"
+                />
+              </div>
             </div>
-          ))}
-        </div>
-      </Section>
-
-      <Section dark>
-        <div className="max-w-4xl mx-auto">
-          <div className="flex items-center justify-center mb-8">
-            <Users size={48} className="text-amber-600" />
           </div>
-          <h2 className="text-3xl md:text-4xl font-light text-center mb-6">
-            Design Philosophy
-          </h2>
-          <p className="text-gray-400 text-lg text-center leading-relaxed mb-8">
-            At D NEST, we believe that exceptional interior design is a harmonious blend of
-            aesthetics, functionality, and personal expression. Our philosophy is rooted in
-            understanding that every space has a story to tell, and our role is to help you
-            tell yours through thoughtful design choices, curated materials, and meticulous
-            attention to detail.
-          </p>
-          <p className="text-gray-400 text-lg text-center leading-relaxed">
-            We approach each project with fresh eyes, creating unique solutions that respect
-            architectural integrity while pushing creative boundaries. The result is interiors
-            that feel both timeless and contemporary, luxurious yet livable, bold yet balanced.
-          </p>
         </div>
-      </Section>
+      </section>
 
-      <Section>
-        <div className="bg-gradient-to-r from-slate-900 to-slate-800 rounded-lg p-12 md:p-16 text-center text-white">
-          <h2 className="text-3xl md:text-4xl font-light mb-6">
-            Let's Create Something Beautiful Together
-          </h2>
-          <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-            Ready to start your design journey? Contact us today to discuss your project.
-          </p>
-          <Button size="lg" onClick={() => onNavigate('contact')}>
-            Get In Touch
-          </Button>
+      {/* Core Values Section */}
+      <section className="relative py-24 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-900 to-indigo-900" />
+        <div className="absolute inset-0">
+          <div className="absolute top-1/2 left-1/4 w-72 h-72 bg-amber-500/10 rounded-full blur-3xl" />
+          <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
         </div>
-      </Section>
-    </>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-light mb-4 text-white">
+              Our Core <span className="bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">Values</span>
+            </h2>
+            <p className="text-white/60 text-lg max-w-2xl mx-auto">
+              The principles that guide everything we do
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {values.map((value, index) => {
+              const Icon = value.icon;
+              return (
+                <div 
+                  key={index} 
+                  className="group backdrop-blur-xl bg-white/5 border border-white/10 rounded-3xl p-8 text-center shadow-2xl hover:bg-white/10 transition-all duration-500 hover:scale-105 hover:border-amber-500/30"
+                >
+                  <div className="w-20 h-20 backdrop-blur-xl bg-gradient-to-br from-amber-500/80 to-orange-600/80 rounded-2xl flex items-center justify-center mx-auto mb-6 transform group-hover:rotate-6 transition-transform shadow-lg shadow-amber-500/20">
+                    <Icon size={40} className="text-white" />
+                  </div>
+                  <h3 className="text-2xl font-light mb-4 text-white">{value.title}</h3>
+                  <p className="text-white/60 leading-relaxed">{value.description}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Team Section */}
+      <section className="relative py-24 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-indigo-900 via-purple-900/50 to-slate-900" />
+        <div className="absolute inset-0">
+          <div className="absolute bottom-0 left-1/3 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
+          <div className="absolute top-0 right-1/3 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl" />
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-light mb-4 text-white">
+              Meet Our <span className="bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">Team</span>
+            </h2>
+            <p className="text-white/60 text-lg max-w-2xl mx-auto">
+              A small, focused team committed to delivering quality, creativity, and reliable results.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+            {team.map((member, index) => (
+              <div 
+                key={index} 
+                className="group backdrop-blur-xl bg-white/5 border border-white/10 rounded-3xl p-8 text-center shadow-2xl hover:bg-white/10 transition-all duration-500 hover:border-amber-500/30"
+              >
+                <div className="relative mb-6">
+                  <div className="aspect-square overflow-hidden rounded-2xl max-w-xs mx-auto border-2 border-white/10 shadow-xl">
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                    />
+                  </div>
+                  <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 backdrop-blur-xl bg-gradient-to-r from-amber-500 to-orange-600 rounded-full p-3 shadow-lg shadow-amber-500/30">
+                    <member.icon size={24} className="text-white" />
+                  </div>
+                </div>
+                <h3 className="text-2xl font-medium mb-2 text-white mt-4">{member.name}</h3>
+                <p className="bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent text-sm mb-4 font-medium">{member.role}</p>
+                <p className="text-white/60 leading-relaxed">{member.bio}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Philosophy Section */}
+      <section className="relative py-24 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-900 to-purple-900" />
+        <div className="absolute inset-0">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-amber-500/5 rounded-full blur-3xl" />
+        </div>
+
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-3xl p-12 md:p-16 shadow-2xl text-center">
+            <div className="inline-flex items-center justify-center w-20 h-20 backdrop-blur-xl bg-gradient-to-br from-amber-500/80 to-orange-600/80 rounded-2xl mb-8 shadow-lg shadow-amber-500/20">
+              <Users size={40} className="text-white" />
+            </div>
+            <h2 className="text-3xl md:text-4xl font-light mb-8 text-white">
+              Our <span className="bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">Philosophy</span>
+            </h2>
+            <p className="text-white/70 text-lg leading-relaxed mb-6">
+              We believe that exceptional design is a harmonious blend of aesthetics, 
+              functionality, and user experience. Our philosophy is rooted in understanding 
+              that every project has unique requirements, and our role is to deliver 
+              solutions that are both beautiful and practical.
+            </p>
+            <p className="text-white/70 text-lg leading-relaxed">
+              We approach each project with fresh perspectives, creating unique solutions 
+              that balance creativity with usability. The result is work that feels both 
+              modern and timeless, sophisticated yet accessible, innovative yet reliable.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="relative py-24 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-purple-900 to-slate-900" />
+        <div className="absolute inset-0">
+          <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-amber-500/10 to-transparent" />
+        </div>
+
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="backdrop-blur-xl bg-gradient-to-br from-amber-500/20 to-orange-600/20 border border-amber-500/30 rounded-3xl p-12 md:p-16 text-center shadow-2xl">
+            <h2 className="text-3xl md:text-4xl font-light mb-6 text-white">
+              Let's Create Something <span className="bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">Beautiful</span> Together
+            </h2>
+            <p className="text-white/70 mb-8 max-w-2xl mx-auto text-lg">
+              Ready to start your design journey? Contact us today to discuss your project.
+            </p>
+            <Button size="lg" onClick={() => onNavigate('contact')}>
+              Get In Touch
+            </Button>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }
