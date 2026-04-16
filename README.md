@@ -1,68 +1,46 @@
-# 🏠 D NEST Interior Design Studio
+<div align="center">
+  
+  <h1>🏠 D NEST Interior Design Studio</h1>
+  
+  <p>
+    <strong>Transforming Spaces Into Dreams</strong><br>
+    <em>A modern, responsive, and visually rich portfolio website designed for interior design services and professional consulting.</em>
+  </p>
 
-> *Transforming Spaces Into Dreams*
---
-# Piyu – Interior Design & Consulting Website
+  <p>
+    <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
+    <img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white" alt="Flask" />
+    <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" />
+    <img src="https://img.shields.io/badge/Jinja2-B41717?style=for-the-badge&logo=jinja&logoColor=white" alt="Jinja" />
+  </p>
+</div>
 
-A modern, responsive, and visually rich portfolio website designed for interior design services and professional consulting.  
-The project highlights services, portfolio listings, client testimonials, and UPI-based consultation payments.
+<br />
 
-A modern interior design website built with **Python**, **Flask**, **Jinja2**, and **Tailwind CSS**.
---
+## 🌟 About The Project
 
-## 🌐 Website Sections Overview
+**D NEST / Piyu Interior Design & Consulting Website** is an elegantly crafted platform highlighting core services, featured portfolio listings, client testimonials, and a secure UPI-based consultation booking system. Built for performance and aesthetics, it delivers a premium user experience across all devices.
 
-### 🏠 Home
-![Home](ScreenShot/Piyu%20latest.jpeg)
+### ✨ Key Features
 
-
-### Services
-Showcases core interior design services with a premium UI and modern layout.
-
-![Services](ScreenShot/Services.jpeg)
-
----
-
-### 👤 About
-Brief introduction about the creator, vision, and design philosophy.
-
-![About](ScreenShot/about.jpeg)
-
----
-
-### 🧾 Listings
-Displays categorized interior projects and offerings.
-
-![Listings](ScreenShot/Listings.jpeg)
+- **🎨 Modern Aesthetics:** Premium UI crafted with responsive Tailwind CSS.
+- **⚡ Super Fast:** Lightweight and highly performant Flask backend.
+- **📱 Fully Responsive:** Flawless experience on desktop, tablet, and mobile displays.
+- **💳 Seamless Bookings:** Consultation appointment system bundled with a secure UPI/QR payment integration.
+- **💬 Instant Support:** Integrated WhatsApp floating chat widget for immediate inquiries.
+- **🖼️ Interactive Gallery:** Dynamic, filterable portfolio grid and property listings.
 
 ---
 
-### 🖼 Portfolio
-Highlights featured projects with images, locations, and completion year.
+## 🚀 Quick Start Guide
 
-![Portfolio](ScreenShot/portfolio.jpeg)
-
----
-
-### 💬 Consultation & Appointment
-Allows users to book consultations and pay the appointment fee using UPI Payment
-Secure and simple UPI QR-based payment system for consultation or appointment booking.
-![Consult](ScreenShot/consult.jpeg)
-
----
-
-### 📞 Contact
-Contact details and inquiry section for easy communication.
-
-![Contact](ScreenShot/contact.jpeg)
-
----
-
-## 🚀 Quick Start
+Follow these simple steps to set up the project locally on your machine.
 
 ### Prerequisites
+
+Ensure you have the following installed on your system:
 - [Python](https://python.org/) (v3.9 or higher)
-- [pip](https://pip.pypa.io/) (Python package manager)
+- [pip](https://pip.pypa.io/)
 
 ### Installation
 
@@ -72,107 +50,162 @@ Contact details and inquiry section for easy communication.
    cd Interior-design-Website-
    ```
 
-2. **Navigate to Flask app**
+2. **Navigate to the Flask application folder**
    ```bash
    cd flask_app
    ```
 
-3. **Create virtual environment** (recommended)
+3. **Set up a virtual environment** *(Highly Recommended)*
    ```bash
    python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   
+   # For Windows
+   .\venv\Scripts\activate
+   # For macOS/Linux
+   source venv/bin/activate
    ```
 
-4. **Install dependencies**
+4. **Install required dependencies**
    ```bash
    pip install -r requirements.txt
    ```
 
-5. **Run the application**
+5. **Fire up the development server!**
    ```bash
    python app.py
    ```
 
-6. **Open in browser**  
-   Visit 👉 [http://localhost:5000](http://localhost:5000)
+   Visit 👉 **[http://localhost:5000](http://localhost:5000)** in your browser to view the app!
 
 ---
 
-## 📁 Project Structure
+## 📸 Guided Tour & Screenshots
 
-```
+*Click the dropdowns below to explore the website's stunning sections.*
+
+<details>
+<summary><strong>🏠 Home Page</strong></summary>
+
+Beautiful hero section introducing the studio.
+![Home](ScreenShot/Piyu%20latest.jpeg)
+</details>
+
+<details>
+<summary><strong>🛋️ Services Overview</strong></summary>
+
+Showcases core interior design services with a premium UI and modern layout.
+![Services](ScreenShot/Services.jpeg)
+</details>
+
+<details>
+<summary><strong>👤 About Us</strong></summary>
+
+Discover the creator's vision and elegant design philosophy.
+![About](ScreenShot/about.jpeg)
+</details>
+
+<details>
+<summary><strong>🧾 Offerings & Listings</strong></summary>
+
+Neatly categorized interior projects and exclusive offerings.
+![Listings](ScreenShot/Listings.jpeg)
+</details>
+
+<details>
+<summary><strong>🖼 Exquisite Portfolio</strong></summary>
+
+Highlights featured projects with immersive images, exact locations, and completion details.
+![Portfolio](ScreenShot/portfolio.jpeg)
+</details>
+
+<details>
+<summary><strong>💬 Consultations & UPI Booking</strong></summary>
+
+Users can effortlessly book personalized consultations and safely complete payments via a secure UPI QR-based system.
+![Consult](ScreenShot/consult.jpeg)
+</details>
+
+<details>
+<summary><strong>📞 Contact Section</strong></summary>
+
+Streamlined inquiry form and straightforward contact details for perfectly smooth communication.
+![Contact](ScreenShot/contact.jpeg)
+</details>
+
+<details>
+<summary><strong>💳 Payment Gateway Preview</strong></summary>
+
+A sneak peek at the seamless payment mechanism.
+![Payments](ScreenShot/payments%20.jpeg)
+</details>
+
+<details>
+<summary><strong>📸 Extra Project Preview (Niku)</strong></summary>
+
+Additional glimpse into the curated designs.
+![Niku](ScreenShot/niku.jpeg)
+</details>
+
+<details>
+<summary><strong>🏢 Alternate Project View</strong></summary>
+
+More stunning aesthetics and architecture details.
+![Additional View](ScreenShot/1749496203858~3.jpg)
+</details>
+
+---
+
+## 📁 Project Architecture
+
+```text
 flask_app/
-├── app.py                 # Main Flask application
-├── supabase_client.py     # Database client (optional)
-├── requirements.txt       # Python dependencies
+├── app.py                 # Core Flask application script
+├── supabase_client.py     # Supabase DB integration client (optional)
+├── requirements.txt       # Python package dependencies
 ├── static/
-│   └── images/           # Static assets
+│   └── images/            # Static assets and media
 └── templates/
-    ├── base.html         # Base template
-    ├── home.html         # Home page
-    ├── about.html        # About page
-    ├── services.html     # Services page
-    ├── portfolio.html    # Portfolio page
-    ├── listings.html     # Listings page
-    └── contact.html      # Contact page
+    ├── base.html          # Global Jinja2 layout template
+    ├── home.html          # Landing page template
+    ├── about.html         # About the studio template
+    ├── services.html      # Service catalog template
+    ├── portfolio.html     # Project gallery template
+    ├── listings.html      # Available properties/packages
+    └── contact.html       # Contact form & details template
 ```
 
 ---
 
-## 🛠️ Available Commands
+## 🛠️ CLI Commands
 
-| Command | Description |
-|---------|-------------|
-| `python app.py` | Start development server |
-| `pip install -r requirements.txt` | Install dependencies |
-| `gunicorn -w 4 app:app` | Production server |
-
----
-
-## ✨ Features
-
-- 🎨 Modern, responsive design
-- 📱 Mobile-friendly
-- ⚡ Fast with Flask
-- 🐍 Python backend
-- 💅 Tailwind CSS styling
-- 💬 WhatsApp chat widget
-- 📝 Contact form with API
-- 🖼️ Filterable portfolio gallery
+| Command | Action |
+|---------|---------|
+| `python app.py` | Starts the local development server |
+| `pip install -r requirements.txt` | Installs system dependencies |
+| `gunicorn -w 4 app:app` | Runs application in Production mode (for deployment) |
 
 ---
 
-## 📄 Pages
-
-- **Home** - Landing page with hero section
-- **About** - Company information & team
-- **Services** - Interior design services
-- **Portfolio** - Project showcase with filtering
-- **Listings** - Property listings
-- **Contact** - Contact form & info
-
----
-
-## 🔌 API Endpoints
+## 🔌 API Reference
 
 | Endpoint | Method | Description |
 |----------|--------|-------------|
-| `/api/portfolio` | GET | Get portfolio items |
-| `/api/portfolio/featured` | GET | Get featured items |
-| `/api/contact` | POST | Submit contact form |
-| `/api/listings` | GET | Get property listings |
+| `/api/portfolio` | `GET` | Retrieve the entire list of portfolio items |
+| `/api/portfolio/featured` | `GET` | Retrieve only highlighted featured items |
+| `/api/contact` | `POST` | Process and store new contact inquiries |
+| `/api/listings` | `GET` | Retrieve active property & package listings |
 
 ---
 
-## 👤 Author
+## 👤 Meet the Author
 
 **Piyush Ramteke**  
-📧 piyu.143247@gmail.com  
-🔗 [LinkedIn](https://www.linkedin.com/in/piyush-ramteke-24-mylife)  
+<a href="mailto:piyu.143247@gmail.com"><img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" /></a>
+<a href="https://www.linkedin.com/in/piyush-ramteke-24-mylife"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>  
 📍 Amravati, India
 
 ---
 
 ## 📜 License
 
-This project is open source and available under the MIT License.
+Distributed under the **MIT License**. Feel free to use, modify, and build upon this open-source project.
