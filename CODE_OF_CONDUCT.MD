@@ -38,3 +38,4 @@ Once the server is running, it will give you a local URL. Open your web browser 
 👉 **http://127.0.0.1:5000** (or `http://localhost:5000`)
 
 To stop the server at any time, just press `Ctrl + C` in your terminal.
+---
