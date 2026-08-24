@@ -1,24 +1,12 @@
 # Python
 __pycache__/
 *.py[cod]
-*$py.class
 *.so
 .Python
 build/
-develop-eggs/
 dist/
-downloads/
-eggs/
 .eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
 *.egg-info/
-.installed.cfg
-*.egg
 
 # Virtual environments
 venv/
@@ -26,30 +14,25 @@ ENV/
 env/
 .venv/
 
-# Flask
+# Flask/runtime
 instance/
 .webassets-cache
+*.log
+logs/
 
 # Environment variables
 .env
 .env.local
 .env.*.local
 
-# IDE
+# IDE / OS
 .vscode/*
 !.vscode/extensions.json
 .idea/
 *.swp
 *.swo
-*~
-
-# OS
 .DS_Store
 Thumbs.db
-
-# Logs
-*.log
-logs/
 
 # Testing
 .coverage
