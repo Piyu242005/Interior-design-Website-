@@ -1,211 +1,126 @@
 <div align="center">
-  
-  <h1>🏠 D NEST Interior Design Studio</h1>
-  
-  <p>
-    <strong>Transforming Spaces Into Dreams</strong><br>
-    <em>A modern, responsive, and visually rich portfolio website designed for interior design services and professional consulting.</em>
-  </p>
 
-  <p>
-    <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
-    <img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white" alt="Flask" />
-    <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" />
-    <img src="https://img.shields.io/badge/Jinja2-B41717?style=for-the-badge&logo=jinja&logoColor=white" alt="Jinja" />
-  </p>
+# 🏠 D NEST Interior Design Studio
+
+**Transforming Spaces Into Dreams**
+
+Premium interior design portfolio and consultation platform built with Flask, Tailwind CSS, and Supabase.
+
+![Python](https://img.shields.io/badge/Python-3.9%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Flask](https://img.shields.io/badge/Flask-3.x-000000?style=for-the-badge&logo=flask&logoColor=white)
+![Supabase](https://img.shields.io/badge/Supabase-Backend-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
+
 </div>
 
-<br />
+## Overview
 
-## 🌟 About The Project
+D NEST is a responsive digital presence for an interior design studio. It combines a premium visual portfolio with service discovery, property-style listings, consultation requests, contact capture, and JSON APIs.
 
-**D NEST / Piyu Interior Design & Consulting Website** is an elegantly crafted platform highlighting core services, featured portfolio listings, client testimonials, and a secure UPI-based consultation booking system. Built for performance and aesthetics, it delivers a premium user experience across all devices.
+## Key capabilities
 
-### ✨ Key Features
+- Premium responsive portfolio experience
+- Residential and commercial service showcase
+- Filterable project categories
+- Property/listing presentation
+- Consultation booking flow
+- Contact form backed by Supabase
+- REST-style JSON endpoints
+- Production Gunicorn entrypoint
+- Security headers and validated JSON APIs
+- Environment-based configuration
+- Mobile navigation and theme support
 
-- **🎨 Modern Aesthetics:** Premium UI crafted with responsive Tailwind CSS.
-- **⚡ Super Fast:** Lightweight and highly performant Flask backend.
-- **📱 Fully Responsive:** Flawless experience on desktop, tablet, and mobile displays.
-- **💳 Seamless Bookings:** Consultation appointment system bundled with a secure UPI/QR payment integration.
-- **💬 Instant Support:** Integrated WhatsApp floating chat widget for immediate inquiries.
-- **🖼️ Interactive Gallery:** Dynamic, filterable portfolio grid and property listings.
-
----
-
-## 🚀 Quick Start Guide
-
-Follow these simple steps to set up the project locally on your machine.
-
-### Prerequisites
-
-Ensure you have the following installed on your system:
-- [Python](https://python.org/) (v3.9 or higher)
-- [pip](https://pip.pypa.io/)
-
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/Piyu242005/Interior-design-Website-.git
-   cd Interior-design-Website-
-   ```
-
-2. **Navigate to the Flask application folder**
-   ```bash
-   cd flask_app
-   ```
-
-3. **Set up a virtual environment** *(Highly Recommended)*
-   ```bash
-   python -m venv venv
-   
-   # For Windows
-   .\venv\Scripts\activate
-   # For macOS/Linux
-   source venv/bin/activate
-   ```
-
-4. **Install required dependencies**
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-5. **Fire up the development server!**
-   ```bash
-   python app.py
-   ```
-
-   Visit 👉 **[http://localhost:5000](http://localhost:5000)** in your browser to view the app!
-
----
-
-## 📸 Guided Tour & Screenshots
-
-*Click the dropdowns below to explore the website's stunning sections.*
-
-<details>
-<summary><strong>🏠 Home Page</strong></summary>
-
-Beautiful hero section introducing the studio.
-![Home](ScreenShot/Piyu%20latest.jpeg)
-</details>
-
-<details>
-<summary><strong>🛋️ Services Overview</strong></summary>
-
-Showcases core interior design services with a premium UI and modern layout.
-![Services](ScreenShot/Services.jpeg)
-</details>
-
-<details>
-<summary><strong>👤 About Us</strong></summary>
-
-Discover the creator's vision and elegant design philosophy.
-![About](ScreenShot/about.jpeg)
-</details>
-
-<details>
-<summary><strong>🧾 Offerings & Listings</strong></summary>
-
-Neatly categorized interior projects and exclusive offerings.
-![Listings](ScreenShot/Listings.jpeg)
-</details>
-
-<details>
-<summary><strong>🖼 Exquisite Portfolio</strong></summary>
-
-Highlights featured projects with immersive images, exact locations, and completion details.
-![Portfolio](ScreenShot/portfolio.jpeg)
-</details>
-
-<details>
-<summary><strong>💬 Consultations & UPI Booking</strong></summary>
-
-Users can effortlessly book personalized consultations and safely complete payments via a secure UPI QR-based system.
-![Consult](ScreenShot/consult.jpeg)
-</details>
-
-<details>
-<summary><strong>📞 Contact Section</strong></summary>
-
-Streamlined inquiry form and straightforward contact details for perfectly smooth communication.
-![Contact](ScreenShot/contact.jpeg)
-</details>
-
-<details>
-<summary><strong>💳 Payment Gateway Preview</strong></summary>
-
-A sneak peek at the seamless payment mechanism.
-![Payments](ScreenShot/payments%20.jpeg)
-</details>
-
-<details>
-<summary><strong>📸 Extra Project Preview (Niku)</strong></summary>
-
-Additional glimpse into the curated designs.
-![Niku](ScreenShot/niku.jpeg)
-</details>
-
-<details>
-<summary><strong>🏢 Alternate Project View</strong></summary>
-
-More stunning aesthetics and architecture details.
-![Additional View](ScreenShot/1749496203858~3.jpg)
-</details>
-
----
-
-## 📁 Project Architecture
+## Architecture
 
 ```text
-flask_app/
-├── app.py                 # Core Flask application script
-├── supabase_client.py     # Supabase DB integration client (optional)
-├── requirements.txt       # Python package dependencies
-├── static/
-│   └── images/            # Static assets and media
-└── templates/
-    ├── base.html          # Global Jinja2 layout template
-    ├── home.html          # Landing page template
-    ├── about.html         # About the studio template
-    ├── services.html      # Service catalog template
-    ├── portfolio.html     # Project gallery template
-    ├── listings.html      # Available properties/packages
-    └── contact.html       # Contact form & details template
+Interior-design-Website-/
+├── flask_app/
+│   ├── app.py                 # Flask routes and APIs
+│   ├── config.py              # Production configuration
+│   ├── security.py            # Request/security helpers
+│   ├── supabase_client.py     # Supabase integration
+│   ├── requirements.txt       # Python dependencies
+│   ├── Procfile               # Gunicorn process definition
+│   ├── .env.example           # Environment template
+│   ├── DEPLOYMENT.md          # Deployment guidance
+│   ├── static/                # CSS, JS, images
+│   └── templates/             # Jinja templates
+├── supabase/                  # Database/project configuration
+└── ScreenShot/                # Project screenshots
 ```
 
----
+## Local development
 
-## 🛠️ CLI Commands
+```bash
+git clone https://github.com/Piyu242005/Interior-design-Website-.git
+cd Interior-design-Website-/flask_app
+python -m venv .venv
 
-| Command | Action |
-|---------|---------|
-| `python app.py` | Starts the local development server |
-| `pip install -r requirements.txt` | Installs system dependencies |
-| `gunicorn -w 4 app:app` | Runs application in Production mode (for deployment) |
+# Windows
+.venv\Scripts\activate
 
----
+# macOS/Linux
+# source .venv/bin/activate
 
-## 🔌 API Reference
+pip install -r requirements.txt
+cp .env.example .env
+python app.py
+```
 
-| Endpoint | Method | Description |
-|----------|--------|-------------|
-| `/api/portfolio` | `GET` | Retrieve the entire list of portfolio items |
-| `/api/portfolio/featured` | `GET` | Retrieve only highlighted featured items |
-| `/api/contact` | `POST` | Process and store new contact inquiries |
-| `/api/listings` | `GET` | Retrieve active property & package listings |
+Open `http://localhost:5000`.
 
----
+## Production
 
-## 👤 Meet the Author
+Use Gunicorn with the included `Procfile` and set:
 
-**Piyush Ramteke**  
-<a href="mailto:piyu.143247@gmail.com"><img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" /></a>
-<a href="https://www.linkedin.com/in/piyush-ramteke-24-mylife"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>  
-📍 Amravati, India
+```env
+FLASK_ENV=production
+FLASK_DEBUG=false
+SECRET_KEY=<strong-random-secret>
+SUPABASE_URL=<your-project-url>
+SUPABASE_ANON_KEY=<your-anon-key>
+```
 
----
+Health endpoint:
 
-## 📜 License
+```text
+GET /api/health
+```
 
-Distributed under the **MIT License**. Feel free to use, modify, and build upon this open-source project.
+## API endpoints
+
+| Endpoint | Method | Purpose |
+|---|---|---|
+| `/api/health` | GET | Service health check |
+| `/api/portfolio` | GET | Portfolio items with optional category filter |
+| `/api/portfolio/featured` | GET | Featured projects |
+| `/api/listings` | GET | Property listings with optional type filter |
+| `/api/contact` | POST | Validated contact submission |
+| `/api/consultation-request` | POST | Consultation request intake |
+
+## Portfolio sections
+
+**Home → About → Services → Portfolio → Listings → Consultation → Contact**
+
+The project also includes screenshots and Supabase integration for persistent contact/portfolio data.
+
+## Roadmap
+
+- Admin dashboard for content management
+- Real consultation appointment availability
+- Payment gateway integration with server-side verification
+- Portfolio image storage and CDN optimization
+- Automated tests and CI validation
+- Structured data / Open Graph metadata
+- Analytics dashboard for inquiries and conversions
+
+## Author
+
+**Piyush Ramteke**
+
+[GitHub](https://github.com/Piyu242005) · [LinkedIn](https://www.linkedin.com/in/piyu24)
+
+## License
+
+MIT License.
