@@ -32,8 +32,8 @@ SERVICES = [
 ]
 
 TEAM = [
-    {"name": "Piyush Ramteke", "role": "Founder & Lead Developer", "image": "/static/images/piyush.jpg", "bio": "Leads the studio website, product direction, and practical digital experiences for clients.", "icon": "code"},
-    {"name": "Nikhil Sonone", "role": "Co-Founder & Technical Associate", "image": "/static/images/nikhil.jpeg", "bio": "Supports implementation, problem-solving, and delivery across design and technology workflows.", "icon": "wrench"},
+    {"name": "Piyush Ramteke", "role": "Founder & Lead Developer", "image": "images/1749496203858~3.jpg", "bio": "Leads the studio website, product direction, and practical digital experiences for clients.", "icon": "code"},
+    {"name": "Nikhil Sonone", "role": "Co-Founder & Technical Associate", "image": "images/niku.jpeg", "bio": "Supports implementation, problem-solving, and delivery across design and technology workflows.", "icon": "wrench"},
 ]
 
 VALUES = [
@@ -171,40 +171,19 @@ def api_contact():
         return jsonify({"success": True, "message": "Thank you. Your inquiry has been received."})
     except Exception:
         app.logger.exception("Contact submission failed")
-        return json_error("Unable to process your request right now.", 500)
+        return json_error("Unable to process the inquiry right now.", 500)
 
 
 @app.route("/api/consultation-request", methods=["POST"])
 @require_json
 def api_consultation_request():
-    try:
-        data = request.get_json(silent=True) or {}
-        name = str(data.get("name", "")).strip()
-        email = str(data.get("email", "")).strip()
-        transaction_id = str(data.get("transaction_id", "")).strip()
-        preferred_date = str(data.get("preferred_date", "")).strip()
-        preferred_time = str(data.get("preferred_time", "")).strip()
-        topic = str(data.get("topic", "")).strip()
-        if not name or not email or not transaction_id:
-            return json_error("Name, email, and transaction ID are required.")
-        if len(transaction_id) > 100 or len(topic) > 500:
-            return json_error("Invalid consultation details.")
-        app.logger.info("Consultation request received for %s on %s %s (%s)", name, preferred_date, preferred_time, transaction_id)
-        return jsonify({"success": True, "message": "Consultation request received. We will verify and confirm your appointment."})
-    except Exception:
-        app.logger.exception("Consultation request failed")
-        return json_error("Unable to process your request right now.", 500)
+    return jsonify({"success": True, "message": "Consultation request received. We will contact you shortly."})
 
 
 @app.errorhandler(404)
-def page_not_found(_error):
-    return render_template("404.html", page_title="Page Not Found — D NEST"), 404
-
-
-@app.errorhandler(500)
-def internal_error(_error):
-    return render_template("500.html", page_title="Server Error — D NEST"), 500
+def not_found(error):
+    return render_template("404.html"), 404
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", "5000")), debug=app.config["DEBUG"])
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", "5000")), debug=os.environ.get("FLASK_DEBUG", "false").lower() == "true")
