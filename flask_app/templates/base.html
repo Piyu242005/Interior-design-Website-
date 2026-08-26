@@ -24,6 +24,28 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
       :root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;font-family:Inter,sans-serif;background:#050505;color:#f8f6f1;-webkit-font-smoothing:antialiased}h1,h2,h3,.display-font{font-family:'Playfair Display',serif}.gold-line{height:1px;background:linear-gradient(90deg,transparent,rgba(212,164,55,.75),transparent)}.ambient-grain{background-image:radial-gradient(rgba(255,255,255,.06) .65px,transparent .65px);background-size:6px 6px;opacity:.08}.nav-link{position:relative}.nav-link:after{content:'';position:absolute;left:50%;bottom:3px;width:0;height:1px;transform:translateX(-50%);background:#d4a437;transition:width .25s ease}.nav-link:hover:after,.nav-link[aria-current="page"]:after{width:24px}.reveal{animation:reveal .7s cubic-bezier(.22,1,.36,1) both}@keyframes reveal{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
+
+      /* Global D NEST visual system: removes legacy purple/blue glassmorphism from every child page. */
+      main{background:#050505;color:#f8f6f1}
+      main section{background:#050505!important}
+      main [class*="bg-gradient-to"]:not(.bg-clip-text){background-image:none!important;background-color:#050505!important}
+      main [class*="from-purple"],main [class*="via-purple"],main [class*="to-purple"],main [class*="from-indigo"],main [class*="via-indigo"],main [class*="to-indigo"],main [class*="from-blue"],main [class*="via-blue"],main [class*="to-blue"],main [class*="from-slate"],main [class*="via-slate"],main [class*="to-slate"]{background-color:#050505!important;color:inherit}
+      main [class*="bg-white/5"],main [class*="bg-white/10"],main [class*="bg-white/20"]{background:rgba(18,18,18,.82)!important;border-color:rgba(212,164,55,.18)!important}
+      main [class*="border-white/"]{border-color:rgba(212,164,55,.18)!important}
+      main [class*="text-white/"]{color:#aaa49a!important}
+      main .text-white{color:#f8f6f1!important}
+      main .bg-clip-text.text-transparent{background-image:none!important;color:#d4a437!important;-webkit-text-fill-color:#d4a437!important}
+      main [class*="from-amber"],main [class*="to-orange"],main [class*="via-orange"]{color:#d4a437}
+      main [class*="bg-amber"],main [class*="bg-orange"]{background:#121212!important;border-color:rgba(212,164,55,.38)!important}
+      main [class*="border-amber"],main [class*="border-orange"]{border-color:rgba(212,164,55,.38)!important}
+      main [class*="shadow-amber"],main [class*="shadow-orange"]{box-shadow:0 12px 40px rgba(0,0,0,.35)!important}
+      main [class*="ring-black"]{--tw-ring-color:rgba(212,164,55,.16)!important}
+      main .rounded-3xl,main .rounded-2xl{border-radius:.75rem!important}
+      main a[class*="bg-gradient"]{background:#d4a437!important;color:#050505!important;border-color:#d4a437!important}
+      main a[class*="bg-gradient"] *{color:#050505!important}
+      main [class*="backdrop-blur"]{backdrop-filter:blur(16px)!important}
+      main h1,main h2,main h3{letter-spacing:-.01em}
+      main section img{filter:saturate(.88) contrast(1.03)}
     </style>
     {% block extra_head %}{% endblock %}
 </head>
