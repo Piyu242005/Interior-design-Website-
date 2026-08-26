@@ -1,5 +1,6 @@
 """Build the Flask-rendered D NEST site as static HTML for GitHub Pages."""
 from pathlib import Path
+import json
 import os
 import shutil
 import sys
@@ -10,6 +11,8 @@ from app import app  # noqa: E402
 
 OUTPUT = ROOT / "_site"
 BASE_PATH = os.environ.get("PAGES_BASE_PATH", "/Interior-design-Website-")
+SUPABASE_URL = os.environ.get("SUPABASE_URL", "")
+SUPABASE_ANON_KEY = os.environ.get("SUPABASE_ANON_KEY", "")
 
 if OUTPUT.exists():
     shutil.rmtree(OUTPUT)
@@ -32,6 +35,16 @@ for route, output_name in routes:
     with app.test_request_context(route, base_url=base_url, environ_base=environ_base):
         response = app.full_dispatch_request()
         html = response.get_data(as_text=True)
+
+    # Add the static-host compatibility layer without changing the existing UI.
+    bridge = (
+        "<script>window.DNEST_SUPABASE="
+        + json.dumps({"url": SUPABASE_URL.rstrip("/"), "anonKey": SUPABASE_ANON_KEY})
+        + ";</script>\n"
+        + f'<script src="{BASE_PATH}/static/js/github-pages.js"></script>\n'
+    )
+    html = html.replace("</body>", bridge + "</body>")
+
     destination = OUTPUT / output_name
     destination.parent.mkdir(parents=True, exist_ok=True)
     destination.write_text(html, encoding="utf-8")
@@ -42,7 +55,9 @@ if static_source.exists():
 
 with app.test_request_context("/404", base_url=base_url, environ_base=environ_base):
     response = app.full_dispatch_request()
-    (OUTPUT / "404.html").write_text(response.get_data(as_text=True), encoding="utf-8")
+    error_html = response.get_data(as_text=True)
+    error_html = error_html.replace("</body>", bridge + "</body>")
+    (OUTPUT / "404.html").write_text(error_html, encoding="utf-8")
 
 (OUTPUT / ".nojekyll").write_text("", encoding="utf-8")
 print(f"Built static site: {OUTPUT}")
