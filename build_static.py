@@ -10,7 +10,7 @@ sys.path.insert(0, str(ROOT / "flask_app"))
 from app import app  # noqa: E402
 
 OUTPUT = ROOT / "_site"
-BASE_PATH = os.environ.get("PAGES_BASE_PATH", "/Interior-design-Website-")
+BASE_PATH = os.environ.get("PAGES_BASE_PATH", "/dnest-interior-design")
 SUPABASE_URL = os.environ.get("SUPABASE_URL", "")
 SUPABASE_ANON_KEY = os.environ.get("SUPABASE_ANON_KEY", "")
 
@@ -36,7 +36,6 @@ for route, output_name in routes:
         response = app.full_dispatch_request()
         html = response.get_data(as_text=True)
 
-    # Add the static-host compatibility layer without changing the existing UI.
     bridge = (
         "<script>window.DNEST_SUPABASE="
         + json.dumps({"url": SUPABASE_URL.rstrip("/"), "anonKey": SUPABASE_ANON_KEY})
