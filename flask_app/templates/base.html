@@ -4,131 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="D NEST Interior Design Studio — premium residential and commercial interior design.">
-    <meta name="theme-color" content="#171512">
+    <meta name="theme-color" content="#050505">
     <title>{{ page_title or 'D NEST Interior Design Studio' }}</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Cormorant Garamond', 'serif']
-                    },
-                    colors: {
-                        ink: '#171512', ivory: '#F3EFE7', champagne: '#C8A96B',
-                        brass: '#A87B35', espresso: '#211D18', stone: '#B7AD9C',
-                        olive: '#7F8F63'
-                    },
-                    boxShadow: {
-                        luxury: '0 24px 80px rgba(0,0,0,.34)',
-                        champagne: '0 0 42px rgba(200,169,107,.16)'
-                    }
-                }
-            }
+            theme: { extend: {
+                fontFamily: { sans: ['Inter','sans-serif'], display: ['Playfair Display','serif'] },
+                colors: { ink:'#050505', ivory:'#F8F6F1', champagne:'#D4A437', bronze:'#9A6A08', charcoal:'#121212', stone:'#AAA49A' },
+                boxShadow: { champagne:'0 0 38px rgba(212,164,55,.14)' }
+            }}
         }
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
-
     <style>
-        :root { color-scheme: dark; }
-        * { box-sizing: border-box; }
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #171512;
-            color: #f3efe7;
-            -webkit-font-smoothing: antialiased;
-            text-rendering: optimizeLegibility;
-        }
-        h1,h2,h3,.display-font { font-family: 'Cormorant Garamond', serif; }
-        ::selection { background: rgba(200,169,107,.28); color: #fff; }
-        .luxury-nav {
-            background: rgba(23,21,18,.78);
-            backdrop-filter: blur(24px) saturate(120%);
-            -webkit-backdrop-filter: blur(24px) saturate(120%);
-            border: 1px solid rgba(200,169,107,.16);
-            box-shadow: 0 18px 60px rgba(0,0,0,.28);
-        }
-        .nav-link { position: relative; }
-        .nav-link::after {
-            content: '';
-            position: absolute; left: 50%; bottom: 4px; width: 0; height: 1px;
-            transform: translateX(-50%);
-            background: linear-gradient(90deg,#c8a96b,#f2dfb3);
-            transition: width .3s ease;
-        }
-        .nav-link:hover::after, .nav-link[aria-current="page"]::after { width: 28px; }
-        .luxury-divider { background: linear-gradient(90deg,transparent,rgba(200,169,107,.65),transparent); height: 1px; }
-        .ambient-grain { background-image: radial-gradient(rgba(255,255,255,.05) .65px,transparent .65px); background-size: 6px 6px; opacity:.07; }
-        .ambient-grid { background-image: linear-gradient(rgba(200,169,107,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(200,169,107,.02) 1px,transparent 1px); background-size:54px 54px; mask-image:linear-gradient(to bottom,black,transparent 82%); }
-        .reveal { animation: reveal .7s cubic-bezier(.22,1,.36,1) both; }
-        @keyframes reveal { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:none; } }
-        @media (prefers-reduced-motion: reduce) { *,*:before,*:after { scroll-behavior:auto !important; animation-duration:.01ms !important; transition-duration:.01ms !important; } }
+      :root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;font-family:Inter,sans-serif;background:#050505;color:#f8f6f1;-webkit-font-smoothing:antialiased}h1,h2,h3,.display-font{font-family:'Playfair Display',serif}.gold-line{height:1px;background:linear-gradient(90deg,transparent,rgba(212,164,55,.75),transparent)}.ambient-grain{background-image:radial-gradient(rgba(255,255,255,.06) .65px,transparent .65px);background-size:6px 6px;opacity:.08}.nav-link{position:relative}.nav-link:after{content:'';position:absolute;left:50%;bottom:3px;width:0;height:1px;transform:translateX(-50%);background:#d4a437;transition:width .25s ease}.nav-link:hover:after,.nav-link[aria-current="page"]:after{width:24px}.reveal{animation:reveal .7s cubic-bezier(.22,1,.36,1) both}@keyframes reveal{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
     </style>
     {% block extra_head %}{% endblock %}
 </head>
-<body class="min-h-screen bg-[#171512] text-[#F3EFE7]">
-    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-champagne focus:px-5 focus:py-3 focus:text-ink focus:font-semibold">Skip to content</a>
-
-    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 px-3 sm:px-5 lg:px-8 py-3 transition-all duration-500" aria-label="Primary navigation">
-        <div class="max-w-7xl mx-auto rounded-2xl luxury-nav px-3 sm:px-5">
-            <div class="flex items-center justify-between h-[70px]">
-                <a href="{{ url_for('home') }}" class="flex items-center gap-3 group shrink-0" aria-label="D NEST home">
-                    <div class="h-11 sm:h-12 w-12 sm:w-14 rounded-xl overflow-hidden ring-1 ring-champagne/20 bg-black/20">
-                        <img src="{{ url_for('static', filename='images/Piyu.png') }}" alt="D NEST logo" class="h-full w-full object-contain transition-transform duration-500 group-hover:scale-105">
-                    </div>
-                    <div class="hidden sm:flex flex-col"><span class="text-xl font-semibold tracking-[.18em] text-ivory leading-none">D NEST</span><span class="mt-1 text-[9px] uppercase tracking-[.28em] text-champagne">Interior Design Studio</span></div>
-                </a>
-                <div class="hidden lg:flex items-center gap-1">
-                    {% set nav_items = [('home','Home','home'),('about','About','info'),('services','Services','briefcase'),('portfolio','Portfolio','images'),('listings','Listings','building-2'),('consultation','Consult','calendar-check'),('contact','Contact','mail')] %}
-                    {% for route,label,icon in nav_items %}
-                    <a href="{{ url_for(route) }}" aria-current="{% if request.endpoint == route %}page{% endif %}" class="nav-link px-3 py-2.5 rounded-xl text-[13px] tracking-wide flex items-center gap-1.5 transition-all duration-300 {% if request.endpoint == route %}text-champagne bg-champagne/10{% else %}text-stone hover:text-ivory hover:bg-white/5{% endif %}"><i data-lucide="{{ icon }}" class="w-3.5 h-3.5"></i>{{ label }}</a>
-                    {% endfor %}
-                </div>
-                <div class="flex items-center gap-2">
-                    <a href="{{ url_for('consultation') }}" class="hidden md:inline-flex items-center gap-2 rounded-full border border-champagne/40 bg-champagne/10 px-4 py-2.5 text-xs font-semibold text-champagne hover:bg-champagne hover:text-ink transition-all duration-300">Begin Your Story <i data-lucide="arrow-up-right" class="w-4 h-4"></i></a>
-                    <button id="mobile-menu-btn" class="lg:hidden p-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-champagne/15" aria-label="Open navigation" aria-expanded="false"><i data-lucide="menu" class="w-5 h-5" id="menu-icon"></i></button>
-                </div>
-            </div>
-            <div id="mobile-menu" class="lg:hidden max-h-0 opacity-0 overflow-hidden transition-all duration-300"><div class="pb-3 pt-2 border-t border-champagne/10 space-y-1">{% for route,label,icon in nav_items %}<a href="{{ url_for(route) }}" class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm {% if request.endpoint == route %}text-champagne bg-champagne/10{% else %}text-stone hover:bg-white/5 hover:text-ivory{% endif %}"><i data-lucide="{{ icon }}" class="w-4 h-4"></i>{{ label }}</a>{% endfor %}</div></div>
-        </div>
-    </nav>
-
-    <div class="fixed inset-0 -z-10 pointer-events-none overflow-hidden">
-        <div class="absolute -top-48 left-1/3 h-[560px] w-[560px] rounded-full bg-champagne/5 blur-[150px]"></div>
-        <div class="absolute top-1/3 -right-48 h-[500px] w-[500px] rounded-full bg-amber-900/10 blur-[150px]"></div>
-        <div class="absolute inset-0 ambient-grid"></div><div class="absolute inset-0 ambient-grain"></div>
+<body class="min-h-screen bg-[#050505] text-[#F8F6F1]">
+<a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded bg-champagne px-4 py-2 text-ink">Skip to content</a>
+<nav id="navbar" class="fixed inset-x-0 top-0 z-50 px-3 sm:px-6 py-4" aria-label="Primary navigation">
+  <div class="mx-auto max-w-7xl border border-champagne/20 bg-black/55 backdrop-blur-xl rounded-md px-4 sm:px-6">
+    <div class="flex h-[66px] items-center justify-between">
+      <a href="{{ url_for('home') }}" class="flex items-center gap-3 group" aria-label="D NEST home">
+        <div class="grid h-11 w-11 place-items-center rounded-sm border border-champagne/55 bg-black"><span class="font-serif text-xl text-champagne">D</span></div>
+        <div class="hidden sm:block"><div class="text-lg tracking-[.28em] leading-none text-ivory">D NEST</div><div class="mt-1 text-[8px] uppercase tracking-[.28em] text-champagne">Interior Design Studio</div></div>
+      </a>
+      <div class="hidden lg:flex items-center gap-1">
+        {% set nav_items=[('home','Home','home'),('about','About','info'),('services','Services','briefcase'),('portfolio','Projects','images'),('listings','Listings','building-2'),('consultation','Consult','calendar-check'),('contact','Contact','mail')] %}
+        {% for route,label,icon in nav_items %}<a href="{{ url_for(route) }}" aria-current="{% if request.endpoint==route %}page{% endif %}" class="nav-link px-3 py-2 text-[12px] uppercase tracking-[.08em] text-stone hover:text-ivory transition flex items-center gap-1.5"><i data-lucide="{{ icon }}" class="h-3.5 w-3.5"></i>{{ label }}</a>{% endfor %}
+      </div>
+      <div class="flex items-center gap-3"><a href="{{ url_for('consultation') }}" class="hidden md:inline-flex rounded-sm border border-champagne/50 px-5 py-2.5 text-[11px] font-semibold uppercase tracking-[.08em] text-champagne hover:bg-champagne hover:text-ink transition">Start a Project</a><button id="mobile-menu-btn" class="lg:hidden rounded-sm border border-champagne/20 bg-white/5 p-2.5" aria-label="Open navigation"><i data-lucide="menu" class="h-5 w-5"></i></button></div>
     </div>
-
-    <main id="main-content" class="reveal">{% block content %}{% endblock %}</main>
-
-    <footer class="relative overflow-hidden border-t border-champagne/15 bg-[#120F0C]">
-        <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-16"><div class="luxury-divider mb-12"></div>
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
-                <div class="lg:col-span-5"><div class="flex items-center gap-3 mb-5"><div class="h-11 w-11 rounded-xl overflow-hidden bg-white/5 ring-1 ring-champagne/20"><img src="{{ url_for('static', filename='images/Piyu.png') }}" alt="D NEST logo" class="h-full w-full object-contain"></div><div><div class="text-lg font-semibold tracking-[.18em]">D NEST</div><div class="text-[9px] uppercase tracking-[.28em] text-champagne">Interior Design Studio</div></div></div><p class="max-w-md text-sm leading-7 text-stone">Spaces shaped with restraint, warmth, proportion and timeless character.</p><a href="{{ url_for('consultation') }}" class="inline-flex items-center gap-2 mt-6 text-sm font-semibold text-champagne hover:text-ivory transition-colors">Begin a conversation <i data-lucide="arrow-right" class="w-4 h-4"></i></a></div>
-                <div class="lg:col-span-2"><h3 class="text-xs uppercase tracking-[.24em] text-champagne/70 mb-5">Explore</h3><ul class="space-y-3 text-sm text-stone"><li><a href="{{ url_for('about') }}" class="hover:text-ivory">About</a></li><li><a href="{{ url_for('services') }}" class="hover:text-ivory">Services</a></li><li><a href="{{ url_for('portfolio') }}" class="hover:text-ivory">Portfolio</a></li><li><a href="{{ url_for('listings') }}" class="hover:text-ivory">Listings</a></li></ul></div>
-                <div class="lg:col-span-3"><h3 class="text-xs uppercase tracking-[.24em] text-champagne/70 mb-5">Studio</h3><ul class="space-y-3 text-sm text-stone"><li>Amravati, Maharashtra 444701</li><li>+91 8855667788</li><li>piyu143247@gmail.com</li></ul></div>
-                <div class="lg:col-span-2"><h3 class="text-xs uppercase tracking-[.24em] text-champagne/70 mb-5">Connect</h3><div class="flex gap-2"><a href="https://www.instagram.com/my.life_24143" target="_blank" rel="noopener" class="h-10 w-10 rounded-xl border border-champagne/15 bg-white/5 flex items-center justify-center hover:bg-champagne hover:text-ink transition-colors" aria-label="Instagram"><i data-lucide="instagram" class="w-4 h-4"></i></a><a href="https://www.linkedin.com/in/piyush-ramteke-24-mylife" target="_blank" rel="noopener" class="h-10 w-10 rounded-xl border border-champagne/15 bg-white/5 flex items-center justify-center hover:bg-champagne hover:text-ink transition-colors" aria-label="LinkedIn"><i data-lucide="linkedin" class="w-4 h-4"></i></a></div></div>
-            </div>
-            <div class="mt-14 pt-6 border-t border-champagne/10 flex flex-col sm:flex-row justify-between gap-3 text-xs text-stone"><span>© {{ current_year }} D NEST Interior Design Studio.</span><span class="tracking-[.12em] uppercase">Crafted with intention</span></div>
-        </div>
-    </footer>
-
-    <div id="whatsapp-widget" class="fixed bottom-5 right-5 z-40"><button id="whatsapp-btn" class="group h-14 w-14 rounded-2xl bg-[#7F8F63] text-white shadow-2xl flex items-center justify-center hover:scale-105 hover:bg-[#91A274] transition-all" aria-label="Contact D NEST on WhatsApp"><i data-lucide="message-circle" class="w-6 h-6"></i></button><div id="whatsapp-popup" class="hidden absolute bottom-16 right-0 w-[min(20rem,calc(100vw-2rem))] rounded-2xl border border-champagne/20 bg-[#F3EFE7] text-[#211D18] shadow-2xl overflow-hidden"><div class="bg-[#7F8F63] text-white p-5"><h3 class="font-semibold">Chat with D NEST</h3><p class="text-xs text-white/80 mt-1">Choose a quick message to get started.</p></div><div class="p-3 space-y-2"><button onclick="sendWhatsApp('Hello! I would like to inquire about your interior design services.')" class="w-full text-left p-3 rounded-xl bg-white/70 hover:bg-white text-sm">Inquire about services</button><button onclick="sendWhatsApp('I would like to schedule a consultation.')" class="w-full text-left p-3 rounded-xl bg-white/70 hover:bg-white text-sm">Schedule consultation</button><button onclick="sendWhatsApp('Can you provide a quote for my project?')" class="w-full text-left p-3 rounded-xl bg-white/70 hover:bg-white text-sm">Request a quote</button></div></div></div>
-
-    <script>
-        lucide.createIcons();
-        const mobileMenuBtn=document.getElementById('mobile-menu-btn'),mobileMenu=document.getElementById('mobile-menu');let menuOpen=false;
-        if(mobileMenuBtn)mobileMenuBtn.addEventListener('click',()=>{menuOpen=!menuOpen;mobileMenu.classList.toggle('max-h-0',!menuOpen);mobileMenu.classList.toggle('opacity-0',!menuOpen);mobileMenu.classList.toggle('max-h-[32rem]',menuOpen);mobileMenu.classList.toggle('opacity-100',menuOpen);mobileMenuBtn.setAttribute('aria-expanded',String(menuOpen));mobileMenuBtn.setAttribute('aria-label',menuOpen?'Close navigation':'Open navigation');document.getElementById('menu-icon').setAttribute('data-lucide',menuOpen?'x':'menu');lucide.createIcons();});
-        const navbar=document.getElementById('navbar');window.addEventListener('scroll',()=>{navbar.classList.toggle('py-2',window.scrollY>24);navbar.classList.toggle('py-3',window.scrollY<=24);},{passive:true});
-        const whatsappBtn=document.getElementById('whatsapp-btn'),whatsappPopup=document.getElementById('whatsapp-popup');let waOpen=false;whatsappBtn.addEventListener('click',()=>{waOpen=!waOpen;whatsappPopup.classList.toggle('hidden',!waOpen);whatsappBtn.querySelector('i').setAttribute('data-lucide',waOpen?'x':'message-circle');lucide.createIcons();});
-        function sendWhatsApp(message){const phoneNumber='1234567890';window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`,'_blank','noopener');whatsappPopup.classList.add('hidden');waOpen=false;}
-    </script>
-    {% block extra_scripts %}{% endblock %}
+    <div id="mobile-menu" class="lg:hidden hidden border-t border-champagne/10 py-3">{% for route,label,icon in nav_items %}<a href="{{ url_for(route) }}" class="flex items-center gap-3 rounded px-3 py-3 text-sm text-stone hover:bg-white/5 hover:text-ivory"><i data-lucide="{{ icon }}" class="h-4 w-4"></i>{{ label }}</a>{% endfor %}</div>
+  </div>
+</nav>
+<div class="pointer-events-none fixed inset-0 -z-10 overflow-hidden"><div class="absolute -top-40 left-1/3 h-[520px] w-[520px] rounded-full bg-champagne/5 blur-[150px]"></div><div class="absolute inset-0 ambient-grain"></div></div>
+<main id="main-content" class="reveal">{% block content %}{% endblock %}</main>
+<footer class="border-t border-champagne/15 bg-[#080808]"><div class="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8 py-14"><div class="gold-line mb-10"></div><div class="grid gap-10 lg:grid-cols-12"><div class="lg:col-span-5"><div class="text-lg tracking-[.25em]">D NEST</div><div class="mt-1 text-[8px] uppercase tracking-[.3em] text-champagne">Interior Design Studio</div><p class="mt-5 max-w-md text-sm leading-7 text-stone">Spaces shaped with restraint, warmth, proportion and timeless character.</p></div><div class="lg:col-span-2"><h3 class="text-[10px] uppercase tracking-[.22em] text-champagne">Explore</h3><div class="mt-4 space-y-2 text-sm text-stone"><a href="{{ url_for('about') }}" class="block hover:text-ivory">About</a><a href="{{ url_for('services') }}" class="block hover:text-ivory">Services</a><a href="{{ url_for('portfolio') }}" class="block hover:text-ivory">Projects</a><a href="{{ url_for('contact') }}" class="block hover:text-ivory">Contact</a></div></div><div class="lg:col-span-3"><h3 class="text-[10px] uppercase tracking-[.22em] text-champagne">Studio</h3><div class="mt-4 space-y-2 text-sm text-stone"><div>Amravati, Maharashtra</div><div>+91 8855667788</div><div>piyu143247@gmail.com</div></div></div><div class="lg:col-span-2"><h3 class="text-[10px] uppercase tracking-[.22em] text-champagne">Connect</h3><div class="mt-4 flex gap-2"><a href="https://www.instagram.com/my.life_24143" target="_blank" rel="noopener" class="grid h-10 w-10 place-items-center border border-champagne/20 hover:bg-champagne hover:text-ink"><i data-lucide="instagram" class="h-4 w-4"></i></a><a href="https://www.linkedin.com/in/piyush-ramteke-24-mylife" target="_blank" rel="noopener" class="grid h-10 w-10 place-items-center border border-champagne/20 hover:bg-champagne hover:text-ink"><i data-lucide="linkedin" class="h-4 w-4"></i></a></div></div></div><div class="mt-10 border-t border-champagne/10 pt-5 text-xs text-stone flex flex-col sm:flex-row justify-between gap-2"><span>© {{ current_year }} D NEST Interior Design Studio.</span><span class="uppercase tracking-[.12em]">Classic • Premium • Timeless</span></div></div></footer>
+<script>
+ lucide.createIcons();
+ const mb=document.getElementById('mobile-menu-btn'),mm=document.getElementById('mobile-menu'); if(mb) mb.addEventListener('click',()=>mm.classList.toggle('hidden'));
+</script>
+{% block extra_scripts %}{% endblock %}
 </body>
 </html>
