@@ -21,10 +21,7 @@
       </div>
 
       <p class="mb-4 text-xs uppercase tracking-[.38em] text-champagne">We Design Spaces</p>
-      <h1 class="display-font text-6xl sm:text-7xl lg:text-8xl font-medium leading-[.9] text-ivory">
-        That Inspire
-        <span class="block text-champagne italic">Lifestyles.</span>
-      </h1>
+      <h1 class="display-font text-6xl sm:text-7xl lg:text-8xl font-medium leading-[.9] text-ivory">That Inspire<span class="block text-champagne italic">Lifestyles.</span></h1>
       <p class="mt-7 max-w-xl text-base sm:text-lg leading-8 text-stone">Premium interior design solutions crafted with elegance, functionality & class.</p>
       <div class="mt-9 flex flex-wrap items-center gap-4">
         <a href="{{ url_for('portfolio') }}" class="inline-flex items-center gap-3 rounded-md bg-champagne px-6 py-3.5 text-sm font-semibold text-ink shadow-champagne hover:brightness-110 transition">Explore Our Work <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
@@ -35,81 +32,20 @@
     <div class="mt-16 grid grid-cols-1 md:grid-cols-3 border-y border-champagne/20">
       {% set pillars=[('Bespoke Design','Tailored to your lifestyle','ruler'),('Premium Quality','Finest materials & craftsmanship','gem'),('Expert Team','Passionate professionals','users')] %}
       {% for title,desc,icon in pillars %}
-      <div class="flex items-center gap-4 border-b md:border-b-0 md:border-r last:border-r-0 border-champagne/15 px-5 py-6">
-        <div class="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-champagne/45 bg-black/30 text-champagne"><i data-lucide="{{ icon }}" class="w-5 h-5"></i></div>
-        <div><h3 class="text-xs uppercase tracking-[.18em] text-ivory">{{ title }}</h3><p class="mt-1 text-xs text-stone">{{ desc }}</p></div>
-      </div>
+      <div class="flex items-center gap-4 border-b md:border-b-0 md:border-r last:border-r-0 border-champagne/15 px-5 py-6"><div class="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-champagne/45 bg-black/30 text-champagne"><i data-lucide="{{ icon }}" class="w-5 h-5"></i></div><div><h3 class="text-xs uppercase tracking-[.18em] text-ivory">{{ title }}</h3><p class="mt-1 text-xs text-stone">{{ desc }}</p></div></div>
       {% endfor %}
     </div>
   </div>
 </section>
 
-<section class="relative py-24 bg-[#0a0a0a]">
-  <div class="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-    <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-10">
-      <div><p class="text-[11px] uppercase tracking-[.3em] text-champagne">Projects</p><h2 class="display-font mt-2 text-5xl text-ivory">Our Signature Work</h2></div>
-      <a href="{{ url_for('portfolio') }}" class="text-sm text-stone hover:text-champagne transition">View all projects →</a>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-      {% for project in featured_projects[:3] %}
-      <a href="{{ url_for('portfolio') }}" class="group overflow-hidden rounded-sm border border-champagne/15 bg-[#111]">
-        <div class="aspect-[4/3] overflow-hidden"><img src="{{ project.image_url }}" alt="{{ project.title }}" class="h-full w-full object-cover transition duration-700 group-hover:scale-105"></div>
-        <div class="p-5"><p class="text-[10px] uppercase tracking-[.2em] text-champagne">{{ project.location }} • {{ project.year }}</p><h3 class="display-font mt-2 text-2xl text-ivory">{{ project.title }}</h3></div>
-      </a>
-      {% endfor %}
-    </div>
-  </div>
-</section>
+<section class="relative py-24 bg-[#0a0a0a]"><div class="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8"><div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-10"><div><p class="text-[11px] uppercase tracking-[.3em] text-champagne">Projects</p><h2 class="display-font mt-2 text-5xl text-ivory">Our Signature Work</h2></div><a href="{{ url_for('portfolio') }}" class="text-sm text-stone hover:text-champagne transition">View all projects →</a></div><div class="grid grid-cols-1 md:grid-cols-3 gap-5">{% for project in featured_projects[:3] %}<a href="{{ url_for('portfolio') }}" class="group overflow-hidden rounded-sm border border-champagne/15 bg-[#111]"><div class="aspect-[4/3] overflow-hidden"><img src="{{ project.image_url }}" alt="{{ project.title }}" class="h-full w-full object-cover transition duration-700 group-hover:scale-105"></div><div class="p-5"><p class="text-[10px] uppercase tracking-[.2em] text-champagne">{{ project.location }} • {{ project.year }}</p><h3 class="display-font mt-2 text-2xl text-ivory">{{ project.title }}</h3></div></a>{% endfor %}</div></div></section>
 
-<section class="py-24 bg-[#0b0b0b]">
-  <div class="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-    <div class="text-center mb-12"><p class="text-[11px] uppercase tracking-[.3em] text-champagne">Services</p><h2 class="display-font mt-2 text-5xl text-ivory">We Design Experiences</h2></div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-      {% for service in services[:4] %}
-      <a href="{{ url_for('services') }}" class="group rounded-sm border border-champagne/15 bg-[#111] p-7 hover:border-champagne/45 hover:-translate-y-1 transition-all">
-        <div class="grid h-12 w-12 place-items-center rounded-full border border-champagne/35 text-champagne mb-6"><i data-lucide="{{ service.icon }}" class="w-5 h-5"></i></div>
-        <h3 class="display-font text-2xl text-ivory">{{ service.title }}</h3>
-        <p class="mt-3 text-sm leading-6 text-stone">{{ service.description[:110] }}...</p>
-        <span class="mt-6 inline-flex text-xs uppercase tracking-[.15em] text-champagne">Explore →</span>
-      </a>
-      {% endfor %}
-    </div>
-  </div>
-</section>
+<section class="py-24 bg-[#0b0b0b]"><div class="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8"><div class="text-center mb-12"><p class="text-[11px] uppercase tracking-[.3em] text-champagne">Services</p><h2 class="display-font mt-2 text-5xl text-ivory">We Design Experiences</h2></div><div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">{% for service in services[:4] %}<a href="{{ url_for('services') }}" class="group rounded-sm border border-champagne/15 bg-[#111] p-7 hover:border-champagne/45 hover:-translate-y-1 transition-all"><div class="grid h-12 w-12 place-items-center rounded-full border border-champagne/35 text-champagne mb-6"><i data-lucide="{{ service.icon }}" class="w-5 h-5"></i></div><h3 class="display-font text-2xl text-ivory">{{ service.title }}</h3><p class="mt-3 text-sm leading-6 text-stone">{{ service.description[:110] }}...</p><span class="mt-6 inline-flex text-xs uppercase tracking-[.15em] text-champagne">Explore →</span></a>{% endfor %}</div></div></section>
 
-<section class="py-24 bg-[#080808]">
-  <div class="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-10 items-stretch">
-    <div class="rounded-sm border border-champagne/15 bg-[#101010] p-8 sm:p-10">
-      <p class="text-[11px] uppercase tracking-[.3em] text-champagne">About Us</p>
-      <h2 class="display-font mt-3 text-5xl text-ivory">Designing Spaces,<br>Creating Stories</h2>
-      <p class="mt-6 text-sm leading-7 text-stone">At D NEST, we believe every space has a story to tell. Our mission is to transform your vision into reality with creativity, precision and timeless elegance.</p>
-      <a href="{{ url_for('about') }}" class="mt-7 inline-flex rounded-md border border-champagne/40 px-5 py-3 text-xs uppercase tracking-[.15em] text-champagne hover:bg-champagne hover:text-ink transition">Know More About Us</a>
-    </div>
-    <div class="grid grid-cols-2 gap-4">
-      <div class="rounded-sm overflow-hidden border border-champagne/15 bg-[#111]"><img src="{{ url_for('static', filename='images/Piyu.png') }}" alt="D NEST co-founder Piyush" class="h-full w-full object-cover object-top"></div>
-      <div class="rounded-sm overflow-hidden border border-champagne/15 bg-[#111]"><img src="{{ url_for('static', filename='images/nikhil.jpeg') }}" alt="D NEST co-founder Nikhil" class="h-full w-full object-cover object-top"></div>
-    </div>
-  </div>
-</section>
+<section class="py-24 bg-[#080808]"><div class="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-10 items-stretch"><div class="rounded-sm border border-champagne/15 bg-[#101010] p-8 sm:p-10"><p class="text-[11px] uppercase tracking-[.3em] text-champagne">About Us</p><h2 class="display-font mt-3 text-5xl text-ivory">Designing Spaces,<br>Creating Stories</h2><p class="mt-6 text-sm leading-7 text-stone">At D NEST, we believe every space has a story to tell. Our mission is to transform your vision into reality with creativity, precision and timeless elegance.</p><a href="{{ url_for('about') }}" class="mt-7 inline-flex rounded-md border border-champagne/40 px-5 py-3 text-xs uppercase tracking-[.15em] text-champagne hover:bg-champagne hover:text-ink transition">Know More About Us</a></div><div class="grid grid-cols-2 gap-4"><div class="rounded-sm overflow-hidden border border-champagne/15 bg-[#111]"><img src="https://raw.githubusercontent.com/Piyu242005/dnest-interior-design/main/ScreenShot/1749496203858~3.jpg" alt="D NEST co-founder Piyush" class="h-full w-full object-cover object-top"></div><div class="rounded-sm overflow-hidden border border-champagne/15 bg-[#111]"><img src="{{ url_for('static', filename='images/nikhil.jpeg') }}" alt="D NEST co-founder Nikhil" class="h-full w-full object-cover object-top"></div></div></div></section>
 
-<section class="py-24 bg-[#0a0a0a]">
-  <div class="mx-auto max-w-5xl px-5 sm:px-6 lg:px-8 text-center">
-    <p class="text-[11px] uppercase tracking-[.3em] text-champagne">Client Testimonials</p>
-    <h2 class="display-font mt-2 text-5xl text-ivory">What Our Clients Say</h2>
-    <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-5 text-left">
-      {% for testimonial in testimonials[:2] %}
-      <div class="rounded-sm border border-champagne/15 bg-[#111] p-7"><div class="text-4xl text-champagne font-serif">“</div><p class="mt-2 text-sm leading-7 text-stone">{{ testimonial.text }}</p><div class="mt-6 flex items-center gap-3"><img src="{{ testimonial.image }}" alt="{{ testimonial.name }}" class="h-10 w-10 rounded-full object-cover"><div><div class="text-sm text-ivory">{{ testimonial.name }}</div><div class="text-xs text-stone">{{ testimonial.role }}</div></div></div></div>
-      {% endfor %}
-    </div>
-  </div>
-</section>
+<section class="py-24 bg-[#0a0a0a]"><div class="mx-auto max-w-5xl px-5 sm:px-6 lg:px-8 text-center"><p class="text-[11px] uppercase tracking-[.3em] text-champagne">Client Testimonials</p><h2 class="display-font mt-2 text-5xl text-ivory">What Our Clients Say</h2><div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-5 text-left">{% for testimonial in testimonials[:2] %}<div class="rounded-sm border border-champagne/15 bg-[#111] p-7"><div class="text-4xl text-champagne font-serif">“</div><p class="mt-2 text-sm leading-7 text-stone">{{ testimonial.text }}</p><div class="mt-6 flex items-center gap-3"><img src="{{ testimonial.image }}" alt="{{ testimonial.name }}" class="h-10 w-10 rounded-full object-cover"><div><div class="text-sm text-ivory">{{ testimonial.name }}</div><div class="text-xs text-stone">{{ testimonial.role }}</div></div></div></div>{% endfor %}</div></div></section>
 
-<section class="py-20 bg-[#0b0b0b]">
-  <div class="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8 rounded-sm border border-champagne/15 bg-[#111] p-8 sm:p-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
-    <div><p class="text-[11px] uppercase tracking-[.3em] text-champagne">Ready to Transform Your Space?</p><h2 class="display-font mt-2 text-4xl text-ivory">Let's create something extraordinary together.</h2></div>
-    <a href="{{ url_for('consultation') }}" class="shrink-0 inline-flex items-center gap-2 rounded-md bg-champagne px-6 py-3.5 text-sm font-semibold text-ink hover:brightness-110 transition">Start Your Project <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
-  </div>
-</section>
+<section class="py-20 bg-[#0b0b0b]"><div class="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8 rounded-sm border border-champagne/15 bg-[#111] p-8 sm:p-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8"><div><p class="text-[11px] uppercase tracking-[.3em] text-champagne">Ready to Transform Your Space?</p><h2 class="display-font mt-2 text-4xl text-ivory">Let's create something extraordinary together.</h2></div><a href="{{ url_for('consultation') }}" class="shrink-0 inline-flex items-center gap-2 rounded-md bg-champagne px-6 py-3.5 text-sm font-semibold text-ink hover:brightness-110 transition">Start Your Project <i data-lucide="arrow-right" class="w-4 h-4"></i></a></div></section>
 {% endblock %}
-
 {% block extra_scripts %}<script>document.addEventListener('DOMContentLoaded',()=>lucide.createIcons());</script>{% endblock %}
