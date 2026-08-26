@@ -30,6 +30,9 @@ jobs:
         run: pip install -r flask_app/requirements.txt
 
       - name: Build static site
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
         run: python build_static.py
 
       - name: Configure Pages
