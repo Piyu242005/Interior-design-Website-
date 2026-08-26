@@ -18,16 +18,13 @@
                         display: ['Cormorant Garamond', 'serif']
                     },
                     colors: {
-                        ink: '#171512',
-                        ivory: '#F3EFE7',
-                        champagne: '#C8A96B',
-                        brass: '#A87B35',
-                        espresso: '#211D18',
-                        stone: '#B7AD9C'
+                        ink: '#171512', ivory: '#F3EFE7', champagne: '#C8A96B',
+                        brass: '#A87B35', espresso: '#211D18', stone: '#B7AD9C',
+                        olive: '#7F8F63'
                     },
                     boxShadow: {
-                        'luxury': '0 24px 80px rgba(0,0,0,.34)',
-                        'champagne': '0 0 42px rgba(200,169,107,.16)'
+                        luxury: '0 24px 80px rgba(0,0,0,.34)',
+                        champagne: '0 0 42px rgba(200,169,107,.16)'
                     }
                 }
             }
@@ -51,42 +48,27 @@
         h1,h2,h3,.display-font { font-family: 'Cormorant Garamond', serif; }
         ::selection { background: rgba(200,169,107,.28); color: #fff; }
         .luxury-nav {
-            background: rgba(23,21,18,.72);
-            backdrop-filter: blur(24px) saturate(125%);
-            -webkit-backdrop-filter: blur(24px) saturate(125%);
+            background: rgba(23,21,18,.78);
+            backdrop-filter: blur(24px) saturate(120%);
+            -webkit-backdrop-filter: blur(24px) saturate(120%);
             border: 1px solid rgba(200,169,107,.16);
             box-shadow: 0 18px 60px rgba(0,0,0,.28);
         }
         .nav-link { position: relative; }
         .nav-link::after {
             content: '';
-            position: absolute;
-            left: 50%; bottom: 4px;
-            width: 0; height: 1px;
+            position: absolute; left: 50%; bottom: 4px; width: 0; height: 1px;
             transform: translateX(-50%);
             background: linear-gradient(90deg,#c8a96b,#f2dfb3);
             transition: width .3s ease;
         }
         .nav-link:hover::after, .nav-link[aria-current="page"]::after { width: 28px; }
-        .luxury-divider {
-            background: linear-gradient(90deg, transparent, rgba(200,169,107,.65), transparent);
-            height: 1px;
-        }
-        .ambient-grain {
-            background-image: radial-gradient(rgba(255,255,255,.06) 0.65px, transparent 0.65px);
-            background-size: 6px 6px;
-            opacity: .08;
-        }
-        .ambient-grid {
-            background-image: linear-gradient(rgba(200,169,107,.03) 1px, transparent 1px), linear-gradient(90deg, rgba(200,169,107,.03) 1px, transparent 1px);
-            background-size: 54px 54px;
-            mask-image: linear-gradient(to bottom, black, transparent 82%);
-        }
+        .luxury-divider { background: linear-gradient(90deg,transparent,rgba(200,169,107,.65),transparent); height: 1px; }
+        .ambient-grain { background-image: radial-gradient(rgba(255,255,255,.05) .65px,transparent .65px); background-size: 6px 6px; opacity:.07; }
+        .ambient-grid { background-image: linear-gradient(rgba(200,169,107,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(200,169,107,.02) 1px,transparent 1px); background-size:54px 54px; mask-image:linear-gradient(to bottom,black,transparent 82%); }
         .reveal { animation: reveal .7s cubic-bezier(.22,1,.36,1) both; }
         @keyframes reveal { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:none; } }
-        @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after { scroll-behavior:auto !important; animation-duration:.01ms !important; transition-duration:.01ms !important; }
-        }
+        @media (prefers-reduced-motion: reduce) { *,*:before,*:after { scroll-behavior:auto !important; animation-duration:.01ms !important; transition-duration:.01ms !important; } }
     </style>
     {% block extra_head %}{% endblock %}
 </head>
@@ -100,69 +82,35 @@
                     <div class="h-11 sm:h-12 w-12 sm:w-14 rounded-xl overflow-hidden ring-1 ring-champagne/20 bg-black/20">
                         <img src="{{ url_for('static', filename='images/Piyu.png') }}" alt="D NEST logo" class="h-full w-full object-contain transition-transform duration-500 group-hover:scale-105">
                     </div>
-                    <div class="hidden sm:flex flex-col">
-                        <span class="text-xl font-semibold tracking-[.18em] text-ivory leading-none">D NEST</span>
-                        <span class="mt-1 text-[9px] uppercase tracking-[.28em] text-champagne">Interior Design Studio</span>
-                    </div>
+                    <div class="hidden sm:flex flex-col"><span class="text-xl font-semibold tracking-[.18em] text-ivory leading-none">D NEST</span><span class="mt-1 text-[9px] uppercase tracking-[.28em] text-champagne">Interior Design Studio</span></div>
                 </a>
-
                 <div class="hidden lg:flex items-center gap-1">
-                    {% set nav_items = [
-                        ('home', 'Home', 'home'), ('about', 'About', 'info'), ('services', 'Services', 'briefcase'),
-                        ('portfolio', 'Portfolio', 'images'), ('listings', 'Listings', 'building-2'),
-                        ('consultation', 'Consult', 'calendar-check'), ('contact', 'Contact', 'mail')
-                    ] %}
-                    {% for route, label, icon in nav_items %}
-                    <a href="{{ url_for(route) }}" aria-current="{% if request.endpoint == route %}page{% endif %}"
-                       class="nav-link px-3 py-2.5 rounded-xl text-[13px] tracking-wide flex items-center gap-1.5 transition-all duration-300 {% if request.endpoint == route %}text-champagne bg-champagne/10{% else %}text-stone hover:text-ivory hover:bg-white/5{% endif %}">
-                        <i data-lucide="{{ icon }}" class="w-3.5 h-3.5"></i>{{ label }}
-                    </a>
+                    {% set nav_items = [('home','Home','home'),('about','About','info'),('services','Services','briefcase'),('portfolio','Portfolio','images'),('listings','Listings','building-2'),('consultation','Consult','calendar-check'),('contact','Contact','mail')] %}
+                    {% for route,label,icon in nav_items %}
+                    <a href="{{ url_for(route) }}" aria-current="{% if request.endpoint == route %}page{% endif %}" class="nav-link px-3 py-2.5 rounded-xl text-[13px] tracking-wide flex items-center gap-1.5 transition-all duration-300 {% if request.endpoint == route %}text-champagne bg-champagne/10{% else %}text-stone hover:text-ivory hover:bg-white/5{% endif %}"><i data-lucide="{{ icon }}" class="w-3.5 h-3.5"></i>{{ label }}</a>
                     {% endfor %}
                 </div>
-
                 <div class="flex items-center gap-2">
-                    <a href="{{ url_for('consultation') }}" class="hidden md:inline-flex items-center gap-2 rounded-full border border-champagne/40 bg-champagne/10 px-4 py-2.5 text-xs font-semibold text-champagne hover:bg-champagne hover:text-ink transition-all duration-300">
-                        Begin Your Story <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
-                    </a>
-                    <button id="mobile-menu-btn" class="lg:hidden p-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-champagne/15" aria-label="Open navigation" aria-expanded="false">
-                        <i data-lucide="menu" class="w-5 h-5" id="menu-icon"></i>
-                    </button>
+                    <a href="{{ url_for('consultation') }}" class="hidden md:inline-flex items-center gap-2 rounded-full border border-champagne/40 bg-champagne/10 px-4 py-2.5 text-xs font-semibold text-champagne hover:bg-champagne hover:text-ink transition-all duration-300">Begin Your Story <i data-lucide="arrow-up-right" class="w-4 h-4"></i></a>
+                    <button id="mobile-menu-btn" class="lg:hidden p-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-champagne/15" aria-label="Open navigation" aria-expanded="false"><i data-lucide="menu" class="w-5 h-5" id="menu-icon"></i></button>
                 </div>
             </div>
-
-            <div id="mobile-menu" class="lg:hidden max-h-0 opacity-0 overflow-hidden transition-all duration-300">
-                <div class="pb-3 pt-2 border-t border-champagne/10 space-y-1">
-                    {% for route, label, icon in nav_items %}
-                    <a href="{{ url_for(route) }}" class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm {% if request.endpoint == route %}text-champagne bg-champagne/10{% else %}text-stone hover:bg-white/5 hover:text-ivory{% endif %}">
-                        <i data-lucide="{{ icon }}" class="w-4 h-4"></i>{{ label }}
-                    </a>
-                    {% endfor %}
-                </div>
-            </div>
+            <div id="mobile-menu" class="lg:hidden max-h-0 opacity-0 overflow-hidden transition-all duration-300"><div class="pb-3 pt-2 border-t border-champagne/10 space-y-1">{% for route,label,icon in nav_items %}<a href="{{ url_for(route) }}" class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm {% if request.endpoint == route %}text-champagne bg-champagne/10{% else %}text-stone hover:bg-white/5 hover:text-ivory{% endif %}"><i data-lucide="{{ icon }}" class="w-4 h-4"></i>{{ label }}</a>{% endfor %}</div></div>
         </div>
     </nav>
 
     <div class="fixed inset-0 -z-10 pointer-events-none overflow-hidden">
         <div class="absolute -top-48 left-1/3 h-[560px] w-[560px] rounded-full bg-champagne/5 blur-[150px]"></div>
         <div class="absolute top-1/3 -right-48 h-[500px] w-[500px] rounded-full bg-amber-900/10 blur-[150px]"></div>
-        <div class="absolute inset-0 ambient-grid"></div>
-        <div class="absolute inset-0 ambient-grain"></div>
+        <div class="absolute inset-0 ambient-grid"></div><div class="absolute inset-0 ambient-grain"></div>
     </div>
 
     <main id="main-content" class="reveal">{% block content %}{% endblock %}</main>
 
     <footer class="relative overflow-hidden border-t border-champagne/15 bg-[#120F0C]">
-        <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-16">
-            <div class="luxury-divider mb-12"></div>
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-16"><div class="luxury-divider mb-12"></div>
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
-                <div class="lg:col-span-5">
-                    <div class="flex items-center gap-3 mb-5">
-                        <div class="h-11 w-11 rounded-xl overflow-hidden bg-white/5 ring-1 ring-champagne/20"><img src="{{ url_for('static', filename='images/Piyu.png') }}" alt="D NEST logo" class="h-full w-full object-contain"></div>
-                        <div><div class="text-lg font-semibold tracking-[.18em]">D NEST</div><div class="text-[9px] uppercase tracking-[.28em] text-champagne">Interior Design Studio</div></div>
-                    </div>
-                    <p class="max-w-md text-sm leading-7 text-stone">Spaces shaped with restraint, warmth, proportion and timeless character.</p>
-                    <a href="{{ url_for('consultation') }}" class="inline-flex items-center gap-2 mt-6 text-sm font-semibold text-champagne hover:text-ivory transition-colors">Begin a conversation <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
-                </div>
+                <div class="lg:col-span-5"><div class="flex items-center gap-3 mb-5"><div class="h-11 w-11 rounded-xl overflow-hidden bg-white/5 ring-1 ring-champagne/20"><img src="{{ url_for('static', filename='images/Piyu.png') }}" alt="D NEST logo" class="h-full w-full object-contain"></div><div><div class="text-lg font-semibold tracking-[.18em]">D NEST</div><div class="text-[9px] uppercase tracking-[.28em] text-champagne">Interior Design Studio</div></div></div><p class="max-w-md text-sm leading-7 text-stone">Spaces shaped with restraint, warmth, proportion and timeless character.</p><a href="{{ url_for('consultation') }}" class="inline-flex items-center gap-2 mt-6 text-sm font-semibold text-champagne hover:text-ivory transition-colors">Begin a conversation <i data-lucide="arrow-right" class="w-4 h-4"></i></a></div>
                 <div class="lg:col-span-2"><h3 class="text-xs uppercase tracking-[.24em] text-champagne/70 mb-5">Explore</h3><ul class="space-y-3 text-sm text-stone"><li><a href="{{ url_for('about') }}" class="hover:text-ivory">About</a></li><li><a href="{{ url_for('services') }}" class="hover:text-ivory">Services</a></li><li><a href="{{ url_for('portfolio') }}" class="hover:text-ivory">Portfolio</a></li><li><a href="{{ url_for('listings') }}" class="hover:text-ivory">Listings</a></li></ul></div>
                 <div class="lg:col-span-3"><h3 class="text-xs uppercase tracking-[.24em] text-champagne/70 mb-5">Studio</h3><ul class="space-y-3 text-sm text-stone"><li>Amravati, Maharashtra 444701</li><li>+91 8855667788</li><li>piyu143247@gmail.com</li></ul></div>
                 <div class="lg:col-span-2"><h3 class="text-xs uppercase tracking-[.24em] text-champagne/70 mb-5">Connect</h3><div class="flex gap-2"><a href="https://www.instagram.com/my.life_24143" target="_blank" rel="noopener" class="h-10 w-10 rounded-xl border border-champagne/15 bg-white/5 flex items-center justify-center hover:bg-champagne hover:text-ink transition-colors" aria-label="Instagram"><i data-lucide="instagram" class="w-4 h-4"></i></a><a href="https://www.linkedin.com/in/piyush-ramteke-24-mylife" target="_blank" rel="noopener" class="h-10 w-10 rounded-xl border border-champagne/15 bg-white/5 flex items-center justify-center hover:bg-champagne hover:text-ink transition-colors" aria-label="LinkedIn"><i data-lucide="linkedin" class="w-4 h-4"></i></a></div></div>
@@ -171,35 +119,15 @@
         </div>
     </footer>
 
-    <div id="whatsapp-widget" class="fixed bottom-5 right-5 z-40">
-        <button id="whatsapp-btn" class="group h-14 w-14 rounded-2xl bg-[#7F8F63] text-white shadow-2xl flex items-center justify-center hover:scale-105 hover:bg-[#91A274] transition-all" aria-label="Contact D NEST on WhatsApp">
-            <i data-lucide="message-circle" class="w-6 h-6"></i>
-        </button>
-        <div id="whatsapp-popup" class="hidden absolute bottom-16 right-0 w-[min(20rem,calc(100vw-2rem))] rounded-2xl border border-champagne/20 bg-[#F3EFE7] text-[#211D18] shadow-2xl overflow-hidden">
-            <div class="bg-[#7F8F63] text-white p-5"><h3 class="font-semibold">Chat with D NEST</h3><p class="text-xs text-white/80 mt-1">Choose a quick message to get started.</p></div>
-            <div class="p-3 space-y-2"><button onclick="sendWhatsApp('Hello! I would like to inquire about your interior design services.')" class="w-full text-left p-3 rounded-xl bg-white/70 hover:bg-white text-sm">Inquire about services</button><button onclick="sendWhatsApp('I would like to schedule a consultation.')" class="w-full text-left p-3 rounded-xl bg-white/70 hover:bg-white text-sm">Schedule consultation</button><button onclick="sendWhatsApp('Can you provide a quote for my project?')" class="w-full text-left p-3 rounded-xl bg-white/70 hover:bg-white text-sm">Request a quote</button></div>
-        </div>
-    </div>
+    <div id="whatsapp-widget" class="fixed bottom-5 right-5 z-40"><button id="whatsapp-btn" class="group h-14 w-14 rounded-2xl bg-[#7F8F63] text-white shadow-2xl flex items-center justify-center hover:scale-105 hover:bg-[#91A274] transition-all" aria-label="Contact D NEST on WhatsApp"><i data-lucide="message-circle" class="w-6 h-6"></i></button><div id="whatsapp-popup" class="hidden absolute bottom-16 right-0 w-[min(20rem,calc(100vw-2rem))] rounded-2xl border border-champagne/20 bg-[#F3EFE7] text-[#211D18] shadow-2xl overflow-hidden"><div class="bg-[#7F8F63] text-white p-5"><h3 class="font-semibold">Chat with D NEST</h3><p class="text-xs text-white/80 mt-1">Choose a quick message to get started.</p></div><div class="p-3 space-y-2"><button onclick="sendWhatsApp('Hello! I would like to inquire about your interior design services.')" class="w-full text-left p-3 rounded-xl bg-white/70 hover:bg-white text-sm">Inquire about services</button><button onclick="sendWhatsApp('I would like to schedule a consultation.')" class="w-full text-left p-3 rounded-xl bg-white/70 hover:bg-white text-sm">Schedule consultation</button><button onclick="sendWhatsApp('Can you provide a quote for my project?')" class="w-full text-left p-3 rounded-xl bg-white/70 hover:bg-white text-sm">Request a quote</button></div></div></div>
 
     <script>
         lucide.createIcons();
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        let menuOpen = false;
-        if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', () => {
-            menuOpen = !menuOpen;
-            mobileMenu.classList.toggle('max-h-0', !menuOpen); mobileMenu.classList.toggle('opacity-0', !menuOpen);
-            mobileMenu.classList.toggle('max-h-[32rem]', menuOpen); mobileMenu.classList.toggle('opacity-100', menuOpen);
-            mobileMenuBtn.setAttribute('aria-expanded', String(menuOpen));
-            mobileMenuBtn.setAttribute('aria-label', menuOpen ? 'Close navigation' : 'Open navigation');
-            document.getElementById('menu-icon').setAttribute('data-lucide', menuOpen ? 'x' : 'menu'); lucide.createIcons();
-        });
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => { navbar.classList.toggle('py-2', window.scrollY > 24); navbar.classList.toggle('py-3', window.scrollY <= 24); }, {passive:true});
-        const whatsappBtn = document.getElementById('whatsapp-btn'), whatsappPopup = document.getElementById('whatsapp-popup');
-        let waOpen = false;
-        whatsappBtn.addEventListener('click', () => { waOpen = !waOpen; whatsappPopup.classList.toggle('hidden', !waOpen); whatsappBtn.querySelector('i').setAttribute('data-lucide', waOpen ? 'x' : 'message-circle'); lucide.createIcons(); });
-        function sendWhatsApp(message) { const phoneNumber = '1234567890'; window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank', 'noopener'); whatsappPopup.classList.add('hidden'); waOpen = false; }
+        const mobileMenuBtn=document.getElementById('mobile-menu-btn'),mobileMenu=document.getElementById('mobile-menu');let menuOpen=false;
+        if(mobileMenuBtn)mobileMenuBtn.addEventListener('click',()=>{menuOpen=!menuOpen;mobileMenu.classList.toggle('max-h-0',!menuOpen);mobileMenu.classList.toggle('opacity-0',!menuOpen);mobileMenu.classList.toggle('max-h-[32rem]',menuOpen);mobileMenu.classList.toggle('opacity-100',menuOpen);mobileMenuBtn.setAttribute('aria-expanded',String(menuOpen));mobileMenuBtn.setAttribute('aria-label',menuOpen?'Close navigation':'Open navigation');document.getElementById('menu-icon').setAttribute('data-lucide',menuOpen?'x':'menu');lucide.createIcons();});
+        const navbar=document.getElementById('navbar');window.addEventListener('scroll',()=>{navbar.classList.toggle('py-2',window.scrollY>24);navbar.classList.toggle('py-3',window.scrollY<=24);},{passive:true});
+        const whatsappBtn=document.getElementById('whatsapp-btn'),whatsappPopup=document.getElementById('whatsapp-popup');let waOpen=false;whatsappBtn.addEventListener('click',()=>{waOpen=!waOpen;whatsappPopup.classList.toggle('hidden',!waOpen);whatsappBtn.querySelector('i').setAttribute('data-lucide',waOpen?'x':'message-circle');lucide.createIcons();});
+        function sendWhatsApp(message){const phoneNumber='1234567890';window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`,'_blank','noopener');whatsappPopup.classList.add('hidden');waOpen=false;}
     </script>
     {% block extra_scripts %}{% endblock %}
 </body>
