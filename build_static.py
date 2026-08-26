@@ -52,6 +52,17 @@ static_source = ROOT / "flask_app" / "static"
 if static_source.exists():
     shutil.copytree(static_source, OUTPUT / "static")
 
+# The exact founder portraits live in ScreenShot/. Copy them into the static
+# build so GitHub Pages can serve the same real photos used by the team data.
+team_images = ["1749496203858~3.jpg", "niku.jpeg"]
+source_images = ROOT / "ScreenShot"
+team_output = OUTPUT / "static" / "images"
+team_output.mkdir(parents=True, exist_ok=True)
+for image_name in team_images:
+    source = source_images / image_name
+    if source.exists():
+        shutil.copy2(source, team_output / image_name)
+
 with app.test_request_context("/404", base_url=base_url, environ_base=environ_base):
     response = app.full_dispatch_request()
     error_html = response.get_data(as_text=True)
