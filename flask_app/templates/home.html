@@ -10,6 +10,16 @@
 
   <div class="relative z-10 mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8 pt-28 pb-20">
     <div class="max-w-2xl">
+      <div class="mb-8 flex items-center gap-4">
+        <div class="grid h-16 w-16 shrink-0 place-items-center rounded-2xl border border-champagne/40 bg-black/45 p-2 shadow-champagne backdrop-blur-md">
+          <img src="{{ url_for('static', filename='images/Piyu.png') }}" alt="D NEST logo" class="h-full w-full object-contain" loading="eager">
+        </div>
+        <div>
+          <div class="text-2xl font-semibold tracking-[.22em] text-ivory">D NEST</div>
+          <div class="mt-1 text-[9px] uppercase tracking-[.3em] text-champagne">Interior Design Studio</div>
+        </div>
+      </div>
+
       <p class="mb-4 text-xs uppercase tracking-[.38em] text-champagne">We Design Spaces</p>
       <h1 class="display-font text-6xl sm:text-7xl lg:text-8xl font-medium leading-[.9] text-ivory">
         That Inspire
@@ -76,8 +86,8 @@
       <a href="{{ url_for('about') }}" class="mt-7 inline-flex rounded-md border border-champagne/40 px-5 py-3 text-xs uppercase tracking-[.15em] text-champagne hover:bg-champagne hover:text-ink transition">Know More About Us</a>
     </div>
     <div class="grid grid-cols-2 gap-4">
-      <div class="rounded-sm overflow-hidden border border-champagne/15 bg-[#111]"><img src="{{ url_for('static', filename='images/Piyu.png') }}" alt="D NEST team" class="h-full w-full object-cover"></div>
-      <div class="rounded-sm overflow-hidden border border-champagne/15 bg-[#111]"><img src="{{ url_for('static', filename='images/nikhil.jpeg') }}" alt="D NEST team" class="h-full w-full object-cover"></div>
+      <div class="rounded-sm overflow-hidden border border-champagne/15 bg-[#111]"><img src="{{ url_for('static', filename='images/Piyu.png') }}" alt="D NEST co-founder Piyush" class="h-full w-full object-cover object-top"></div>
+      <div class="rounded-sm overflow-hidden border border-champagne/15 bg-[#111]"><img src="{{ url_for('static', filename='images/nikhil.jpeg') }}" alt="D NEST co-founder Nikhil" class="h-full w-full object-cover object-top"></div>
     </div>
   </div>
 </section>
